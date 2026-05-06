@@ -1,5 +1,26 @@
 # REVIEW_LOG.md
 
+## Review Entry: Branding and Logo Integration
+
+- Branch: feature/b-brand-consistency-and-logo-integration
+- Owner: Kişi B
+- Reviewer: Kişi A
+- Optional Reviewer: Kişi C
+- Result: Ready for review
+
+## Reviewed Changes
+
+- QueueLess AI logo asset'i eklendi.
+- Landing, start, recruitment, academic ve dashboard ekranları ortak header/logo/kart/buton diline yaklaştırıldı.
+- Ortak UI component yaklaşımı güçlendirildi.
+
+## Checklist
+
+- [x] Logo header ve dashboard tarafında görünür.
+- [x] Ana sayfa, başla sayfası ve dashboard aynı ürün ailesi gibi görünür.
+- [x] Green-black product design language korunur.
+- [x] Gerçek mail, gerçek AI API veya secret eklenmedi.
+
 ## Review Entry: Landing Page and Multi-Flow UI
 
 - Branch: feature/b-landing-and-multi-flow-ui

@@ -62,6 +62,13 @@ Testlerde gerçek mail servisi, gerçek AI API, gerçek kişisel veri veya API k
 - [ ] Human approval mesajı görünür mü?
 - [ ] Responsive görünüm kabul edilebilir mi?
 
+## Branding and Design Consistency Tests
+
+- [ ] QueueLess AI logosu navbar/header alanında görünüyor mu?
+- [ ] Ana sayfa, başla sayfası ve dashboard aynı green-black ürün dilini paylaşıyor mu?
+- [ ] Kart, buton, badge ve spacing yaklaşımı sayfalar arasında tutarlı mı?
+- [ ] Dashboard markalama alanı ana sayfa ile görsel olarak uyumlu mu?
+
 ## Human Approval Tests
 
 - [x] Mail taslağı düzenlenebilir.

@@ -1,5 +1,23 @@
 # PROMPT_HISTORY.md
 
+## Prompt Summary: Branding and Logo Integration
+
+- Date: 2026-05-06
+- Requested by: Kişi B
+- Branch: feature/b-brand-consistency-and-logo-integration
+
+## Summary
+
+Kişi B, QueueLess AI Inbox logosunun projeye eklenmesini ve ana sayfa, başla sayfası, analiz akışları ile dashboard'un aynı tasarım sistemini paylaşacak şekilde hizalanmasını istedi.
+
+## Key Instructions Captured
+
+- Logo navbar/header, hero ve dashboard markalama alanlarında kullanılmalı.
+- Landing, start ve dashboard aynı renk sistemi, kart yapısı, button stili, spacing ve modern SaaS hissini paylaşmalı.
+- Dashboard görsel dili landing/start sayfalarına yayılmalı.
+- Ortak component mantığı kurulmalı.
+- Gerçek backend, gerçek AI API, gerçek mail gönderimi veya gerçek kişisel veri eklenmemeli.
+
 ## Prompt Summary: Landing Page and Multi-Flow UI
 
 - Date: 2026-05-06

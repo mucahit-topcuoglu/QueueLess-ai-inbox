@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { PrimaryButton } from "./PrimaryButton";
 
 export function CtaSection() {
   return (
@@ -8,9 +8,9 @@ export function CtaSection() {
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-300">Demo hazır</p>
           <h2 className="mt-3 text-3xl font-black tracking-normal">Başvuru operasyonunu akıllı kuyruklara taşıyın.</h2>
         </div>
-        <Link href="/start" className="inline-flex min-h-12 items-center justify-center rounded-md bg-emerald-400 px-6 text-sm font-black text-neutral-950 transition hover:bg-emerald-300">
+        <PrimaryButton href="/start" className="min-h-12 px-6">
           Başla
-        </Link>
+        </PrimaryButton>
       </div>
     </section>
   );
