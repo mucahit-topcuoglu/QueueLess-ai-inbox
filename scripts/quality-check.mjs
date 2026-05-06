@@ -4,6 +4,18 @@ import { fileURLToPath } from "node:url";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
 const requiredFiles = [
+  "src/app/layout.tsx",
+  "src/app/page.tsx",
+  "src/app/globals.css",
+  "src/components/InboxDashboard.tsx",
+  "src/components/DashboardCards.tsx",
+  "src/components/ApplicationList.tsx",
+  "src/components/ApplicationDetail.tsx",
+  "src/components/QueueTabs.tsx",
+  "src/components/ChecklistView.tsx",
+  "src/components/EmailDraftPanel.tsx",
+  "src/components/AiDecisionPanel.tsx",
+  "src/components/StatusBadge.tsx",
   "src/types/application.ts",
   "src/data/mockApplications.ts",
   "src/lib/analyzer.ts",
@@ -60,7 +72,7 @@ for (const file of requiredFiles) {
 const filesToScanForOutboundMail = allFiles.filter((item) => {
   const normalizedPath = relative(root, item).replaceAll("\\", "/");
 
-  return /\.(ts|mjs)$/.test(item)
+  return /\.(ts|tsx|mjs)$/.test(item)
     && !normalizedPath.endsWith(".test.ts")
     && normalizedPath !== "scripts/quality-check.mjs";
 });

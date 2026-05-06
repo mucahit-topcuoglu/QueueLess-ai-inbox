@@ -32,15 +32,15 @@
 - [x] #2 Problem fit and documentation
 - [x] #3 Mock inbox data model
 - [x] #4 AI analyzer engine
-- [ ] #5 Dashboard UI
-- [ ] #6 Application detail screen
-- [ ] #7 Queue filtering workflow
-- [ ] #8 Human-approved email flow (logic draft output ready; UI simulation pending)
+- [x] #5 Dashboard UI
+- [x] #6 Application detail screen
+- [x] #7 Queue filtering workflow
+- [x] #8 Human-approved email flow
 - [ ] #9 Testing and final audit (Kisi C analyzer tests added; final audit pending)
 - [ ] #10 Final submission
 
 ## Current Focus
 
-- Kisi C logic layer completed for mock inbox, analyzer, checklist, queue and tests.
-- Next focus: Kisi B can connect analyzed mock application output to dashboard and detail UI.
+- Kisi B dashboard and demo UI connected to analyzed mock application output.
+- Next focus: run final validation, review UX and prepare demo walkthrough.
 - Keep MVP scope safe: no real mail, no real personal data, no automatic sending.

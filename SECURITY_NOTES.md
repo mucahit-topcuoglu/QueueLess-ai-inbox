@@ -18,6 +18,12 @@ AI yalnızca cevap maili taslağı oluşturur. Cevap taslağı görevli insan ta
 
 Demo sırasında gönderim butonu gerçek dış iletişim başlatmaz. Sadece simüle edilmiş bir durum değişikliği gösterir.
 
+## Dashboard UI Mail Simulation
+
+- UI'da `Maili Onayla ve Gönder` butonu gerçek mail göndermez, sadece demo simülasyonu yapar.
+- İnsan onayı olmadan hiçbir outbound işlem yapılmaz.
+- Simülasyon yalnızca tarayıcı state'i içinde başvuru durumunu `Tamamlananlar` olarak günceller.
+
 ## Data Policy
 
 MVP boyunca yalnızca sahte demo verisi kullanılacaktır. Gerçek başvuru sahibi adı, mail adresi, kimlik bilgisi, belge numarası veya kişisel veri kullanılmaz.

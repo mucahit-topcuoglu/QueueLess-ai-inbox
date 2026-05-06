@@ -54,6 +54,15 @@ QueueLess AI Inbox bu manuel akışı tek ekranda yönetilebilir hale getirir:
 7. Gönderim demo olarak simüle edilir.
 8. Başvuru tamamlanan veya ilgili kuyruğa taşınır.
 
+## Dashboard Demo
+
+Dashboard demo arayüzü Kişi C'nin `analyzedMockApplications` çıktısıyla çalışır ve gerçek mail ya da gerçek AI API entegrasyonu gerektirmez.
+
+- Metrik kartları: Bugün Gelen, Eksik Evrak, İncelemeye Alındı, Onay Bekleyen Yanıtlar, Riskli / Manuel Kontrol ve Ortalama Zaman Kazancı %66.
+- Başvuru listesi: gönderen, mail, konu, ek dosya, belge türü, AI güven skoru, kuyruk, öncelik ve kısa AI özeti gösterir.
+- Detay paneli: mail içeriği, AI sınıflandırması, checklist sonucu, eksik alanlar, risk uyarıları, AI karar açıklaması ve mail taslağı gösterir.
+- Mail akışı: `Maili Onayla ve Gönder` butonu gerçek mail göndermez; yalnızca "Mail gönderildi olarak simüle edildi." mesajını gösterir ve UI içinde başvuruyu Tamamlananlar kuyruğuna taşır.
+
 ## Tech Stack
 
 - Next.js

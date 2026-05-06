@@ -1,5 +1,30 @@
 # REVIEW_LOG.md
 
+## Review Entry: Dashboard and Demo UI
+
+- Branch: feature/b-dashboard-and-demo-ui
+- Owner: Kişi B
+- Reviewer: Kişi A
+- Optional Reviewer: Kişi C
+- Result: Ready for review
+
+## Review Scope
+
+- Dashboard jüriye problemi ve çözümü hızlı anlatıyor mu?
+- Metrik kartları ve %66 zaman kazancı görünür mü?
+- Başvuru listesi Kişi C mock data/analyzer çıktılarıyla uyumlu mu?
+- Kuyruk filtreleri doğru çalışıyor mu?
+- Detay paneli checklist, eksik alanlar, risk uyarıları ve AI karar açıklamasını gösteriyor mu?
+- Mail taslağı düzenlenebilir mi?
+- `Maili Onayla ve Gönder` gerçek mail göndermeden sadece demo simülasyonu mu yapıyor?
+- Responsive görünüm laptop demosu ve mobil kırılımlar için yeterli mi?
+
+## Review Notes
+
+- Bu PR gerçek mail entegrasyonu veya gerçek AI API çağrısı içermez.
+- Kişi A'nın problem-fikir uyumu ve demo anlatımı açısından kontrol etmesi beklenir.
+- Kişi C'nin veri modeli ve analyzer çıktısıyla uyumu kontrol etmesi önerilir.
+
 ## Review Entry: Mock AI Analyzer and Application Data
 
 - Branch: feature/c-ai-analyzer-and-mock-data

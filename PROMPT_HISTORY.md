@@ -1,5 +1,28 @@
 # PROMPT_HISTORY.md
 
+## Prompt Summary: Dashboard and Demo UI
+
+- Date: 2026-05-06
+- Requested by: Kişi B
+- Branch: feature/b-dashboard-and-demo-ui
+
+## Summary
+
+Kişi B, QueueLess AI Inbox için jüriye gösterilecek demo arayüzünün hazırlanmasını istedi. İstenen çalışma Dashboard metrikleri, başvuru listesi, kuyruk filtreleri, başvuru detay paneli, checklist görünümü, risk uyarıları, AI karar açıklaması ve insan onaylı mail taslağı simülasyonunu kapsadı.
+
+Gerçek mail entegrasyonu, gerçek AI API entegrasyonu ve gerçek kişisel veri kullanımı kapsam dışında bırakıldı. UI'ın Kişi C'nin mock data ve deterministic analyzer çıktılarıyla çalışması, mail gönderiminin yalnızca demo olarak simüle edilmesi ve onay sonrası başvurunun UI içinde Tamamlananlar kuyruğuna taşınması vurgulandı.
+
+## Key Instructions Captured
+
+- Branch adı `feature/b-dashboard-and-demo-ui` olmalı.
+- Dashboard ilk 10 saniyede problem ve çözümü anlatmalı.
+- Metrikler Bugün Gelen, Eksik Evrak, İncelemeye Alındı, Onay Bekleyen Yanıtlar, Riskli / Manuel Kontrol ve %66 zaman kazancını göstermeli.
+- Başvuru listesi ve detay paneli Kişi C veri modeliyle uyumlu olmalı.
+- Checklist, eksik alanlar, risk flag ve AI karar açıklaması görünür olmalı.
+- Mail taslağı düzenlenebilir olmalı.
+- `Maili Onayla ve Gönder` gerçek mail göndermemeli; sadece simülasyon mesajı göstermeli.
+- README.md, TEST_PLAN.md, SECURITY_NOTES.md, AI_USAGE_LOG.md, REVIEW_LOG.md, PROMPT_HISTORY.md ve TASK_BOARD.md güncellenmeli.
+
 ## Prompt Summary: AI Workflow and Mock Data
 
 - Date: 2026-05-06

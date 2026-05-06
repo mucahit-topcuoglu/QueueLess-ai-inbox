@@ -1,5 +1,62 @@
 # AI_USAGE_LOG.md
 
+## Entry: Dashboard and Demo UI
+
+- Date: 2026-05-06
+- Branch: feature/b-dashboard-and-demo-ui
+- Owner: Kişi B
+- AI Role: Frontend Assistant / UX Agent
+
+## AI Assisted Work
+
+- Dashboard component yapısı tasarlandı.
+- Başvuru listesi ve detay ekranı planlandı.
+- Checklist ve mail taslağı UI akışı oluşturuldu.
+- Human-in-the-loop mail onay akışı UI'da gösterildi.
+
+## Human Reviewed Work
+
+- Kişi B UI kullanılabilirliğini kontrol edecek.
+- Kişi A problem-fikir uyumu ve demo anlatımı açısından kontrol edecek.
+- Kişi C veri modeli ve analyzer çıktısıyla uyumu kontrol edecek.
+
+## Files Affected
+
+- package.json
+- next.config.mjs
+- postcss.config.mjs
+- tailwind.config.ts
+- tsconfig.json
+- src/app/layout.tsx
+- src/app/page.tsx
+- src/app/globals.css
+- src/components/InboxDashboard.tsx
+- src/components/DashboardCards.tsx
+- src/components/ApplicationList.tsx
+- src/components/ApplicationDetail.tsx
+- src/components/QueueTabs.tsx
+- src/components/ChecklistView.tsx
+- src/components/EmailDraftPanel.tsx
+- src/components/AiDecisionPanel.tsx
+- src/components/StatusBadge.tsx
+- src/components/EmptyState.tsx
+- src/components/LoadingState.tsx
+- src/components/ErrorState.tsx
+- src/lib/uiLabels.ts
+- scripts/quality-check.mjs
+- README.md
+- TEST_PLAN.md
+- SECURITY_NOTES.md
+- REVIEW_LOG.md
+- PROMPT_HISTORY.md
+- TASK_BOARD.md
+
+## Risks and Limitations
+
+- UI mock local data ile çalışır; gerçek mail inbox entegrasyonu yoktur.
+- Gerçek AI API çağrısı yapılmaz; Kişi C deterministic analyzer çıktısı kullanılır.
+- Mail onayı yalnızca demo simülasyonu üretir ve outbound iletişim başlatmaz.
+
 ## Entry: Mock AI Analyzer and Application Data
 
 - Date: 2026-05-06
