@@ -3,10 +3,11 @@ export function AiDecisionPanel() {
     "Mail konusu incelendi.",
     "Ek dosya adı incelendi.",
     "Belge türü tahmin edildi.",
-    "Checklist kontrolü uygulandı.",
+    "Checklist uygulandı.",
     "Eksik alanlar çıkarıldı.",
-    "Güven skoruna göre kuyruk önerildi.",
-    "Risk varsa manuel kontrole yönlendirildi."
+    "Güven skoru değerlendirildi.",
+    "Risk varsa manuel kontrole yönlendirildi.",
+    "Cevap maili yalnızca taslak olarak üretildi."
   ];
 
   return (

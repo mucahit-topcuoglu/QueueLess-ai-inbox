@@ -1,5 +1,29 @@
 # PROMPT_HISTORY.md
 
+## Prompt Summary: Queue Filters and Human Approval Flow
+
+- Date: 2026-05-06
+- Requested by: Kişi B
+- Branch: feature/b-queue-and-approval-flow
+
+## Summary
+
+Kişi B, Kişi C'nin mock data, analyzer ve queue engine çıktıları ile dashboard arayüzünün birleştirilmesini istedi. Çalışma; gerçek çalışan kuyruk filtreleri, seçime göre güncellenen detay paneli, analyzer çıktılarının görünürlüğü, düzenlenebilir mail taslağı, insan onaylı simüle gönderim ve onay sonrası `Tamamlananlar` durumuna geçiş akışını kapsadı.
+
+Riskli başvurularda gönderim simülasyonunun engellenmesi, gerçek mail gönderilmemesi, gerçek AI API çağrısı yapılmaması ve API key eklenmemesi özellikle vurgulandı.
+
+## Key Instructions Captured
+
+- Branch adı `feature/b-queue-and-approval-flow` olmalı.
+- Mock data UI'a bağlanmalı.
+- Analyzer çıktıları detay panelinde görünmeli.
+- Kuyruk filtreleri statüye göre listeyi değiştirmeli.
+- Mail taslağı textarea içinde düzenlenebilir olmalı.
+- `Maili Onayla ve Gönder` yalnızca demo simülasyonu yapmalı.
+- Onay sonrası başvuru `Tamamlananlar` filtresinde görünmeli.
+- Riskli başvuruda gönderim simülasyonu engellenmeli.
+- README.md, TEST_PLAN.md, SECURITY_NOTES.md, AI_USAGE_LOG.md, REVIEW_LOG.md, PROMPT_HISTORY.md ve TASK_BOARD.md güncellenmeli.
+
 ## Prompt Summary: Dashboard and Demo UI
 
 - Date: 2026-05-06

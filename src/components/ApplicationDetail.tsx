@@ -1,5 +1,5 @@
-import type { ApplicationRecord } from "@/types/application";
 import { confidenceLabel, queueLabel, statusTone } from "@/lib/uiLabels";
+import type { DashboardApplication } from "@/types/dashboard";
 import { AiDecisionPanel } from "./AiDecisionPanel";
 import { ChecklistView } from "./ChecklistView";
 import { EmailDraftPanel } from "./EmailDraftPanel";
@@ -9,10 +9,14 @@ import { StatusBadge } from "./StatusBadge";
 export function ApplicationDetail({
   application,
   isCompleted,
+  isRisky,
+  onDraftChange,
   onApprove
 }: {
-  application: ApplicationRecord | null;
+  application: DashboardApplication | null;
   isCompleted: boolean;
+  isRisky: boolean;
+  onDraftChange: (draft: string) => void;
   onApprove: (draft: string) => void;
 }) {
   if (!application) {
@@ -26,9 +30,9 @@ export function ApplicationDetail({
 
   return (
     <aside className="space-y-4">
-      {application.riskFlags.length > 0 ? (
+      {isRisky ? (
         <div className="rounded-lg border border-rose-200 bg-rose-50 p-4 text-sm font-semibold leading-6 text-rose-900">
-          Bu başvuru düşük güven skoru veya doğrulanamayan imza nedeniyle manuel kontrole yönlendirilmiştir.
+          Bu başvuru riskli olarak işaretlendiği için manuel kontrol tamamlanmadan gönderim simülasyonu yapılamaz.
         </div>
       ) : null}
 
@@ -48,8 +52,10 @@ export function ApplicationDetail({
           <Info label="AI sınıflandırması" value={application.detectedApplicationType} />
           <Info label="Belge türü" value={application.documentType} />
           <Info label="Güven skoru" value={confidenceLabel(application.confidenceScore)} />
-          <Info label="Önerilen kuyruk" value={queueLabel(application.status)} />
+          <Info label="AI önerilen kuyruk" value={queueLabel(application.recommendedQueue)} />
+          <Info label="Mevcut durum" value={queueLabel(application.status)} />
           <Info label="Öncelik" value={application.priority} />
+          <Info label="Eksik alan sayısı" value={String(application.missingFields.length)} />
         </div>
 
         <div className="mt-5 rounded-lg bg-slate-50 p-4">
@@ -84,7 +90,13 @@ export function ApplicationDetail({
       </section>
 
       <AiDecisionPanel />
-      <EmailDraftPanel draft={application.generatedReplyDraft} isCompleted={isCompleted} onApprove={onApprove} />
+      <EmailDraftPanel
+        draft={application.generatedReplyDraft}
+        isCompleted={isCompleted}
+        isRisky={isRisky}
+        onDraftChange={onDraftChange}
+        onApprove={onApprove}
+      />
     </aside>
   );
 }

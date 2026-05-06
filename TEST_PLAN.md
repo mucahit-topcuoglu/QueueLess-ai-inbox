@@ -70,6 +70,16 @@ npm run test
 - `Maili Onayla ve Gönder` gerçek outbound işlem başlatmamalı; yalnızca simülasyon mesajı göstermeli.
 - Onay sonrası seçili başvuru UI içinde `Tamamlananlar` kuyruğuna taşınmalı.
 
+## Queue and Human Approval Integration Tests
+
+- [ ] Kuyruk filtreleri doğru çalışıyor mu?
+- [ ] Dashboard kartları mock data'dan doğru hesaplanıyor mu?
+- [ ] Başvuru seçilince detay paneli güncelleniyor mu?
+- [ ] Mail taslağı düzenlenebiliyor mu?
+- [ ] Onay sonrası başvuru Tamamlananlar durumuna geçiyor mu?
+- [ ] Riskli başvuruda gönderim simülasyonu engelleniyor mu?
+- [ ] Gerçek mail gönderimi yapılmadığı doğrulanıyor mu?
+
 ## Test Scenarios: Mock AI Analyzer and Queue Engine
 
 - [x] Eksik staj evraki Eksik Evrak kuyruguna dusmeli.

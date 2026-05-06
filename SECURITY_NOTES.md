@@ -23,6 +23,9 @@ Demo sırasında gönderim butonu gerçek dış iletişim başlatmaz. Sadece sim
 - UI'da `Maili Onayla ve Gönder` butonu gerçek mail göndermez, sadece demo simülasyonu yapar.
 - İnsan onayı olmadan hiçbir outbound işlem yapılmaz.
 - Simülasyon yalnızca tarayıcı state'i içinde başvuru durumunu `Tamamlananlar` olarak günceller.
+- Riskli başvurularda gönderim simülasyonu engellenmiştir.
+- Gerçek mail servisi kullanılmamaktadır.
+- UI yalnızca demo simülasyonu yapmaktadır.
 
 ## Data Policy
 

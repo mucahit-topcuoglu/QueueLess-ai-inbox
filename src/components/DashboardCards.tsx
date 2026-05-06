@@ -1,5 +1,6 @@
-import type { ApplicationRecord, ProductQueue } from "@/types/application";
 import { queueLabel } from "@/lib/uiLabels";
+import type { ProductQueue } from "@/types/application";
+import type { DashboardApplication } from "@/types/dashboard";
 
 type MetricCard = {
   label: string;
@@ -12,22 +13,27 @@ export function DashboardCards({
   applications,
   queues
 }: {
-  applications: ApplicationRecord[];
+  applications: DashboardApplication[];
   queues: readonly ProductQueue[];
 }) {
-  const countByQueue = new Map<ProductQueue, number>();
+  const countByRecommendedQueue = new Map<ProductQueue, number>();
 
   for (const queue of queues) {
-    countByQueue.set(queue, applications.filter((application) => application.status === queue).length);
+    countByRecommendedQueue.set(queue, applications.filter((application) => application.recommendedQueue === queue).length);
   }
 
   const today = applications.filter((application) => application.createdAt.startsWith("2026-05-06")).length;
+  const awaitingApproval = applications.filter((application) =>
+    Boolean(application.generatedReplyDraft)
+    && application.status !== queues[5]
+    && application.recommendedQueue !== queues[4]
+  ).length;
   const metrics: MetricCard[] = [
     { label: "Bugün Gelen", value: today, detail: "Mock inbox başvuruları", accent: "border-l-blue-500" },
-    { label: "Eksik Evrak", value: countByQueue.get(queues[1]) ?? 0, detail: queueLabel(queues[1]), accent: "border-l-amber-500" },
-    { label: "İncelemeye Alındı", value: countByQueue.get(queues[2]) ?? 0, detail: queueLabel(queues[2]), accent: "border-l-cyan-500" },
-    { label: "Onay Bekleyen Yanıtlar", value: countByQueue.get(queues[3]) ?? 0, detail: queueLabel(queues[3]), accent: "border-l-indigo-500" },
-    { label: "Riskli / Manuel Kontrol", value: countByQueue.get(queues[4]) ?? 0, detail: queueLabel(queues[4]), accent: "border-l-rose-500" },
+    { label: "Eksik Evrak", value: countByRecommendedQueue.get(queues[1]) ?? 0, detail: "AI önerisi", accent: "border-l-amber-500" },
+    { label: "İncelemeye Alındı", value: countByRecommendedQueue.get(queues[2]) ?? 0, detail: "AI önerisi", accent: "border-l-cyan-500" },
+    { label: "Onay Bekleyen Yanıtlar", value: awaitingApproval, detail: "İnsan onayı bekler", accent: "border-l-indigo-500" },
+    { label: "Riskli / Manuel Kontrol", value: countByRecommendedQueue.get(queues[4]) ?? 0, detail: queueLabel(queues[4]), accent: "border-l-rose-500" },
     { label: "Ortalama Zaman Kazancı", value: "%66", detail: "6 dakikadan 2 dakikaya", accent: "border-l-emerald-500" }
   ];
 

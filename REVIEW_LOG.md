@@ -1,5 +1,29 @@
 # REVIEW_LOG.md
 
+## Review Entry: Queue Filters and Human Approval Flow
+
+- Branch: feature/b-queue-and-approval-flow
+- Owner: Kişi B
+- Reviewer: Kişi C
+- Optional Reviewer: Kişi A
+- Result: Ready for review
+
+## Review Scope
+
+- Mock data ve analyzer çıktıları dashboard UI'a doğru bağlandı mı?
+- Kuyruk filtreleri `Tümü`, `Onay Bekleyen Yanıtlar`, `Riskli / Manuel Kontrol` ve `Tamamlananlar` akışlarında doğru sonuç veriyor mu?
+- Seçilen başvuru değişince detay paneli güncelleniyor mu?
+- AI önerilen kuyruk ile UI mevcut durumu ayrı ve anlaşılır gösteriliyor mu?
+- Mail taslağı textarea içinde düzenlenebiliyor mu?
+- Onay sonrası gerçek mail gönderilmeden sadece simülasyon mesajı gösteriliyor mu?
+- Riskli başvuruda gönderim simülasyonu engelleniyor mu?
+
+## Review Notes
+
+- Bu PR gerçek mail entegrasyonu veya gerçek AI API çağrısı içermez.
+- Kişi C'nin analyzer, queue engine ve UI status uyumunu kontrol etmesi beklenir.
+- Kişi A'nın insan onayı güvenlik kuralı ve problem-fikir uyumu açısından kontrol etmesi önerilir.
+
 ## Review Entry: Dashboard and Demo UI
 
 - Branch: feature/b-dashboard-and-demo-ui

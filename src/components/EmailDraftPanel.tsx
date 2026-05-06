@@ -5,21 +5,28 @@ import { useEffect, useState } from "react";
 export function EmailDraftPanel({
   draft,
   isCompleted,
+  isRisky,
+  onDraftChange,
   onApprove
 }: {
   draft: string;
   isCompleted: boolean;
+  isRisky: boolean;
+  onDraftChange: (draft: string) => void;
   onApprove: (draft: string) => void;
 }) {
-  const [isEditing, setIsEditing] = useState(false);
   const [editedDraft, setEditedDraft] = useState(draft);
   const [simulationMessage, setSimulationMessage] = useState("");
 
   useEffect(() => {
     setEditedDraft(draft);
-    setIsEditing(false);
     setSimulationMessage("");
   }, [draft]);
+
+  function handleDraftChange(value: string) {
+    setEditedDraft(value);
+    onDraftChange(value);
+  }
 
   return (
     <div className="rounded-lg border border-slate-200 bg-white p-5">
@@ -33,31 +40,35 @@ export function EmailDraftPanel({
         ) : null}
       </div>
 
-      {isEditing ? (
-        <textarea
-          value={editedDraft}
-          onChange={(event) => setEditedDraft(event.target.value)}
-          rows={9}
-          className="mt-4 w-full resize-y rounded-lg border border-slate-300 bg-white p-3 text-sm leading-6 text-slate-800"
-        />
-      ) : (
-        <pre className="mt-4 max-h-72 overflow-auto whitespace-pre-wrap rounded-lg border border-slate-200 bg-slate-50 p-3 text-sm leading-6 text-slate-800">
-          {editedDraft}
-        </pre>
-      )}
+      {isRisky ? (
+        <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-sm font-semibold leading-6 text-rose-900">
+          Riskli başvurularda taslak otomatik onaya uygun değildir. Manuel kontrol tamamlanmadan gönderim simülasyonu yapılamaz.
+        </div>
+      ) : null}
+
+      <textarea
+        value={editedDraft}
+        onChange={(event) => handleDraftChange(event.target.value)}
+        rows={10}
+        className="mt-4 w-full resize-y rounded-lg border border-slate-300 bg-white p-3 text-sm leading-6 text-slate-800"
+        aria-label="Düzenlenebilir AI mail taslağı"
+      />
 
       <div className="mt-4 flex flex-col gap-2 sm:flex-row">
         <button
           type="button"
-          onClick={() => setIsEditing((value) => !value)}
+          onClick={() => handleDraftChange(editedDraft)}
           className="min-h-11 rounded-md border border-slate-300 bg-white px-4 text-sm font-bold text-slate-800 transition hover:bg-slate-50"
         >
           Taslağı Düzenle
         </button>
         <button
           type="button"
-          disabled={isCompleted}
+          disabled={isCompleted || isRisky}
           onClick={() => {
+            if (isRisky) {
+              return;
+            }
             onApprove(editedDraft);
             setSimulationMessage("Mail gönderildi olarak simüle edildi.");
           }}
