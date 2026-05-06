@@ -42,12 +42,15 @@
 - [x] #12 Start flow selection — Done
 - [x] #13 Recruitment flow UI — Done
 - [x] #14 Academic document analysis UI — Done
+- [x] #15 Branding and logo integration — Done
+- [x] #16 Design consistency across landing, start and dashboard — Done
+- [x] #17 Shared UI system refinement — Done
 
 ## Current Focus
 
-- Kişi B landing ve multi-flow demo ekranlarını review için hazırladı.
-- Kişi A problem-fikir anlatım gücü ve landing mesajını kontrol edecek.
-- Kişi C ileride analyzer entegrasyonu için recruitment/academic UI veri uyumunu kontrol edecek.
+- Kişi B logo, ortak navigation, kart, button ve upload tasarım dilini review için hazırladı.
+- Kişi A marka anlatımı ve problem-fikir uyumunu kontrol edecek.
+- Kişi C veri akışı ve ekran uyumunu kontrol edecek.
 
 ## Submission Readiness
 

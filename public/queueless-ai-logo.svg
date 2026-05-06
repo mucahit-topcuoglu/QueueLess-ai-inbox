@@ -1,0 +1,14 @@
+<svg width="220" height="64" viewBox="0 0 220 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">QueueLess AI Inbox logo</title>
+  <desc id="desc">Modern green and dark QueueLess AI Inbox brand mark.</desc>
+  <rect width="220" height="64" rx="16" fill="#07110D"/>
+  <path d="M25 32C25 20.9543 33.9543 12 45 12H64C75.0457 12 84 20.9543 84 32C84 43.0457 75.0457 52 64 52H45C33.9543 52 25 43.0457 25 32Z" fill="#0F241A"/>
+  <path d="M45 22H65C70.5228 22 75 26.4772 75 32C75 37.5228 70.5228 42 65 42H45C39.4772 42 35 37.5228 35 32C35 26.4772 39.4772 22 45 22Z" stroke="#39E58C" stroke-width="5"/>
+  <path d="M52 32H86" stroke="#39E58C" stroke-width="5" stroke-linecap="round"/>
+  <path d="M79 25L88 32L79 39" stroke="#39E58C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="42" cy="32" r="4" fill="#39E58C"/>
+  <path d="M103 23H112.6C121 23 126.6 28.16 126.6 36C126.6 43.84 121 49 112.6 49H103V23ZM112.4 42.72C116.84 42.72 119.76 40.04 119.76 36C119.76 31.96 116.84 29.28 112.4 29.28H109.72V42.72H112.4Z" fill="white"/>
+  <path d="M130.4 23H150.64V29.04H137.12V33.16H149.36V38.96H137.12V49H130.4V23Z" fill="white"/>
+  <path d="M154.52 23H161.24V42.72H173.36V49H154.52V23Z" fill="white"/>
+  <path d="M180.236 23H187.316L198.276 49H191.076L189.356 44.76H178.196L176.516 49H169.516L180.236 23ZM187.196 39.28L183.756 30.64L180.316 39.28H187.196Z" fill="#39E58C"/>
+</svg>

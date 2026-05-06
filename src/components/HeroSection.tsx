@@ -1,12 +1,16 @@
-import Link from "next/link";
-import { SiteHeader } from "./SiteHeader";
+import { BrandLogo } from "./BrandLogo";
+import { PrimaryButton } from "./PrimaryButton";
+import { TopNav } from "./TopNav";
 
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-neutral-950">
-      <SiteHeader />
+      <TopNav tone="dark" />
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
         <div>
+          <div className="mb-8">
+            <BrandLogo />
+          </div>
           <p className="text-sm font-bold uppercase tracking-[0.24em] text-emerald-300">AI destekli belge ve başvuru yönetimi</p>
           <h1 className="mt-5 text-4xl font-black tracking-normal text-white sm:text-6xl">
             Belgeleri analiz eden, eksikleri bulan, süreçleri hızlandıran akıllı başvuru yönetimi.
@@ -15,12 +19,12 @@ export function HeroSection() {
             QueueLess AI Inbox, iş başvurularından staj belgelerine kadar gelen dokümanları analiz eder, kategorize eder, eksik alanları tespit eder ve insan onaylı güvenli iş akışları oluşturur.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link href="/start" className="inline-flex min-h-12 items-center justify-center rounded-md bg-emerald-400 px-6 text-sm font-black text-neutral-950 transition hover:bg-emerald-300">
+            <PrimaryButton href="/start" className="min-h-12 px-6">
               Başla
-            </Link>
-            <Link href="/dashboard" className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/15 px-6 text-sm font-bold text-white transition hover:bg-white/10">
+            </PrimaryButton>
+            <PrimaryButton href="/dashboard" variant="dark" className="min-h-12 px-6">
               Demo Akışını Gör
-            </Link>
+            </PrimaryButton>
           </div>
         </div>
 

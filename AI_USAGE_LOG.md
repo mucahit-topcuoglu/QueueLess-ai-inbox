@@ -1,5 +1,60 @@
 # AI_USAGE_LOG.md
 
+## Entry: Branding and Logo Integration
+
+- Date: 2026-05-06
+- Branch: feature/b-brand-consistency-and-logo-integration
+- Owner: Kişi B
+- AI Role: Frontend / UX Agent; Brand Consistency Agent
+
+## AI Assisted Work
+
+- Logo entegrasyonu planlandı.
+- Landing, start ve dashboard için ortak tasarım dili oluşturuldu.
+- Tasarım sistemi tutarlılığı artırıldı.
+- Ortak component yaklaşımı önerildi.
+- Marka görünümü güçlendirildi.
+
+## Human Reviewed Work
+
+- Kişi B görsel tutarlılığı kontrol edecek.
+- Kişi A ürün anlatımı ve problem-fikir uyumunu kontrol edecek.
+- Kişi C veri akışı ve ekran uyumunu kontrol edecek.
+
+## Affected Files
+
+- public/queueless-ai-logo.svg
+- src/components/BrandLogo.tsx
+- src/components/TopNav.tsx
+- src/components/PageSection.tsx
+- src/components/SectionTitle.tsx
+- src/components/InfoCard.tsx
+- src/components/PrimaryButton.tsx
+- src/components/FileUploadZone.tsx
+- src/components/SiteHeader.tsx
+- src/components/HeroSection.tsx
+- src/components/FeatureSection.tsx
+- src/components/UseCaseCards.tsx
+- src/components/CtaSection.tsx
+- src/components/PdfUploadPanel.tsx
+- src/components/InboxDashboard.tsx
+- src/components/RecruitmentFlow.tsx
+- src/components/AcademicFlow.tsx
+- src/components/JobPostingAnalyzerPanel.tsx
+- src/app/start/page.tsx
+- src/app/internship/page.tsx
+- scripts/quality-check.mjs
+- README.md
+- TEST_PLAN.md
+- REVIEW_LOG.md
+- PROMPT_HISTORY.md
+- TASK_BOARD.md
+
+## Risk / Limitation
+
+- Kullanıcı tarafından ayrı bir binary logo dosyası repo içinde bulunmadığı için marka tarifine uygun ölçeklenebilir SVG logo eklendi.
+- Tasarım değişikliği frontend katmanındadır; gerçek mail, gerçek AI API veya gerçek kişisel veri eklenmedi.
+
 ## Entry: Landing Page and Multi-Flow UI
 
 - Date: 2026-05-06
