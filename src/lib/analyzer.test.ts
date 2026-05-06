@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 
 import { mockApplications } from "../data/mockApplications.ts";
+import { PRODUCT_QUEUES } from "./constants.ts";
 import { analyzeApplication } from "./analyzer.ts";
 
 const tests: { name: string; run: () => void }[] = [];
@@ -64,6 +65,13 @@ test("Analyzer hiçbir şekilde gerçek mail göndermemeli", () => {
   assert.doesNotMatch(source, /\bsendEmail\b/i);
   assert.doesNotMatch(source, /\bnodemailer\b/i);
   assert.doesNotMatch(source, /\bsmtp\b/i);
+});
+
+test("Bilinmeyen belge turu manuel kontrol gerektiren duruma dusmeli", () => {
+  const result = analyzeApplication(byId("app-005"));
+
+  assert.equal(result.detectedApplicationType, "Bilinmeyen Belge");
+  assert.equal(result.recommendedQueue, PRODUCT_QUEUES[4]);
 });
 
 let passed = 0;

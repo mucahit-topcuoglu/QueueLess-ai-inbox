@@ -1,52 +1,36 @@
 # SECURITY_NOTES.md
 
-## Security Notes
+## No Real Email Sending
 
-QueueLess AI Inbox MVP güvenli, kontrollü ve demo odaklı bir kapsamda geliştirilir.
+QueueLess AI Inbox MVP gercek mail gondermez. Analyzer ve UI yalnizca insan onayina hazir cevap taslagi ve demo simulasyon durumu uretir.
 
-## Security Decisions
+Kod kalite kontrolu uretim kodunda `sendEmail`, `nodemailer`, `smtp`, `mailgun` ve `sendgrid` patternlerini tarar. Bu PR'da gercek outbound mail entegrasyonu bulunmamaktadir.
 
-- Gerçek kişisel veri kullanılmaz.
-- Gerçek mail gönderilmez.
-- API key kullanılmaz.
-- İnsan onayı olmadan gönderim yapılmaz.
-- Riskli belgeler manuel kontrole gider.
+## Human-in-the-loop Approval
 
-## Human Approval Policy
+AI sadece analiz, kuyruk onerisi ve duzenlenebilir mail taslagi uretir. Son karar gorevli insandadir.
 
-AI yalnızca cevap maili taslağı oluşturur. Cevap taslağı görevli insan tarafından okunabilir, düzenlenebilir ve onaylanabilir olmalıdır.
+Onay akisi `simulateHumanApproval` fonksiyonuyla demo durum guncellemesi yapar. Bu fonksiyon gercek dis iletisim baslatmaz, yalnizca basvuruyu UI state icinde `Tamamlananlar` durumuna tasir.
 
-Demo sırasında gönderim butonu gerçek dış iletişim başlatmaz. Sadece simüle edilmiş bir durum değişikliği gösterir.
+## Fake Demo Data Only
 
-## Dashboard UI Mail Simulation
+Mock data yalnizca sahte demo isimleri ve `example.com` mail adresleri kullanir. Gercek kisi, kurum, belge, kimlik numarasi veya ozel veri kullanilmaz.
 
-- UI'da `Maili Onayla ve Gönder` butonu gerçek mail göndermez, sadece demo simülasyonu yapar.
-- İnsan onayı olmadan hiçbir outbound işlem yapılmaz.
-- Simülasyon yalnızca tarayıcı state'i içinde başvuru durumunu `Tamamlananlar` olarak günceller.
-- Riskli başvurularda gönderim simülasyonu engellenmiştir.
-- Gerçek mail servisi kullanılmamaktadır.
-- UI yalnızca demo simülasyonu yapmaktadır.
+## No API Keys
 
-## Data Policy
+MVP gercek AI API veya mail provider gerektirmez. Repo icine API key, token, secret veya provider credential eklenmedi.
 
-MVP boyunca yalnızca sahte demo verisi kullanılacaktır. Gerçek başvuru sahibi adı, mail adresi, kimlik bilgisi, belge numarası veya kişisel veri kullanılmaz.
+## Risky Applications Require Manual Control
 
-## Secrets Policy
+Dusuk guven skoru, bilinmeyen belge turu, eksik attachment, hatali sender email, bos checklist veya imza dogrulanamiyor durumu `Riskli / Manuel Kontrol` kuyruguna gider.
 
-## Mock AI Analyzer Security Decisions
+Riskli basvurularda gonderim simulasyonu engellenir. Taslak varsa bile otomatik onaya uygun sayilmaz.
 
-- Gercek mail gonderimi yoktur.
-- AI analyzer sadece oneri uretir.
-- Insan onayi zorunludur.
-- Dusuk guven skorlu belgeler manuel kontrole gider.
-- Gercek kisisel veri kullanilmaz.
-- Demo verisi sahtedir.
-- Cevap maili yalnizca string taslak olarak uretilir.
-- Riskli basvurular icin taslak otomatik gonderime uygun degildir ve manuel kontrol aciklamasi icerir.
-- Kod icinde gercek outbound mail provider, SMTP entegrasyonu veya otomatik iletisim mantigi bulunmaz.
+## Future Production Security Requirements
 
-MVP gerçek AI API veya mail provider gerektirmez. Bu nedenle API key, token veya secret repo içine eklenmez.
-
-## Risk Routing
-
-Düşük güven skoru, belirsiz belge türü, eksik kritik alan veya şüpheli içerik durumunda başvuru Riskli / Manuel Kontrol kuyruğuna yönlendirilmelidir.
+- Gercek mail entegrasyonu eklenirse OAuth veya provider-side secure auth kullanilmali.
+- Secrets sadece environment variable veya secret manager ile tutulmali.
+- PII masking, audit log ve role-based access control eklenmeli.
+- Real AI API entegrasyonunda prompt injection, data minimization ve output review kontrolleri uygulanmali.
+- Outbound mail gonderimi icin explicit human approval, confirmation modal ve immutable audit trail zorunlu olmali.
+- Riskli belgeler icin ikinci insan review veya kurum policy kontrolu eklenmeli.
