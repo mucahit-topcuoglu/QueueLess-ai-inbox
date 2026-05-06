@@ -50,6 +50,26 @@ npm run build
 npm run test
 ```
 
+## UI Demo Test Scenarios
+
+- [x] Dashboard kartları görünüyor mu?
+- [x] Başvuru listesi görünüyor mu?
+- [x] Kuyruk filtreleri çalışıyor mu?
+- [x] Başvuru detay paneli açılıyor mu?
+- [x] Checklist görünümü doğru mu?
+- [x] Mail taslağı görünüyor mu?
+- [x] Mail gönderimi sadece simüle ediliyor mu?
+- [x] Empty state çalışıyor mu?
+
+## UI Verification Plan
+
+- Dashboard açıldığında jüri problemi ve çözümü ilk ekranda okuyabilmeli.
+- `Tümü`, `Eksik Evrak`, `İncelemeye Alındı` ve `Riskli / Manuel Kontrol` filtreleri mock data üzerinden listeyi değiştirmeli.
+- Risk flag bulunan başvuruda manuel kontrol uyarısı görünmeli.
+- `Taslağı Düzenle` butonu taslağı textarea olarak düzenlenebilir yapmalı.
+- `Maili Onayla ve Gönder` gerçek outbound işlem başlatmamalı; yalnızca simülasyon mesajı göstermeli.
+- Onay sonrası seçili başvuru UI içinde `Tamamlananlar` kuyruğuna taşınmalı.
+
 ## Test Scenarios: Mock AI Analyzer and Queue Engine
 
 - [x] Eksik staj evraki Eksik Evrak kuyruguna dusmeli.
