@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { analyzeRecruitment } from "@/lib/ai/analyzeRecruitment";
+import { OllamaRequestError } from "@/lib/ai/ollamaClient";
 import { extractPdfText, PdfValidationError, truncateForModel } from "@/lib/pdf/extractPdfText";
 import type { UploadedTextFile } from "@/lib/ai/schemas";
 
@@ -28,14 +29,11 @@ export async function POST(request: Request) {
     }
 
     const cvTexts: UploadedTextFile[] = [];
-    const extractionWarnings: string[] = [];
 
     for (const file of files) {
-      const extractedText = await extractTextForAnalysis(file, extractionWarnings);
-
       cvTexts.push({
         fileName: file.name,
-        text: extractedText
+        text: await extractPdfText(file)
       });
     }
 
@@ -44,11 +42,15 @@ export async function POST(request: Request) {
     return NextResponse.json({
       ok: true,
       ...result,
-      warning: [result.warning, jobTextResult.warning, ...extractionWarnings].filter(Boolean).join(" ") || undefined
+      warning: jobTextResult.warning
     });
   } catch (error) {
     if (error instanceof PdfValidationError) {
       return NextResponse.json({ ok: false, error: error.message }, { status: 400 });
+    }
+
+    if (error instanceof OllamaRequestError) {
+      return NextResponse.json({ ok: false, error: error.message }, { status: 503 });
     }
 
     return NextResponse.json({ ok: false, error: "Recruitment analizi tamamlanamadi." }, { status: 500 });
@@ -96,19 +98,6 @@ async function resolveJobText(jobUrl: string, manualJobText: string): Promise<{ 
     };
   } catch {
     return { text: "", warning: "Is ilani linki okunamadi, manuel ilan metni girin." };
-  }
-}
-
-async function extractTextForAnalysis(file: File, warnings: string[]): Promise<string> {
-  try {
-    return await extractPdfText(file);
-  } catch (error) {
-    if (error instanceof PdfValidationError && error.code === "unreadable") {
-      warnings.push(`${file.name}: PDF metni okunamadi, fallback analiz dosya adi ve sinirli bilgiyle uretildi.`);
-      return `PDF metni okunamadi. Dosya adi: ${file.name}. Aday bilgileri bulunamadi.`;
-    }
-
-    throw error;
   }
 }
 

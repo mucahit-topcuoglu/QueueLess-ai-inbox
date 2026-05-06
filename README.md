@@ -110,7 +110,7 @@ npm install
 - Uygulama env değerlerini `.env.local` üzerinden okur.
 - API key kullanılmaz.
 - Ollama health check endpoint'i: `/api/health/ollama`
-- AI servisi çalışmazsa response `mode: "fallback"` ve anlaşılır `warning` ile deterministic demo analyzer sonucuna döner.
+- Canlı analiz akışı fallback sonuç üretmez; Ollama veya `gemma4:31b-cloud` erişilemezse kullanıcıya hata gösterilir.
 
 `.env.local` örneği:
 

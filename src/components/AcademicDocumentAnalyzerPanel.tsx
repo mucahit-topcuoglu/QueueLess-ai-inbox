@@ -54,7 +54,7 @@ export function AcademicDocumentAnalyzerPanel() {
 
       <div className="rounded-lg border border-neutral-200 bg-white p-5 shadow-panel">
         <h2 className="text-lg font-black text-neutral-950">Akademik PDF analizi</h2>
-        <p className="mt-2 text-sm leading-6 text-neutral-600">PDF yükleyin; Ollama yanıt vermezse deterministic fallback sonucu gösterilir.</p>
+        <p className="mt-2 text-sm leading-6 text-neutral-600">PDF yükleyin; analiz yalnızca Ollama gemma4:31b-cloud modeliyle yapılır.</p>
         <label className="mt-4 block rounded-lg border border-dashed border-emerald-400 bg-emerald-50 p-4 text-sm font-bold text-slate-900">
           PDF belgeleri
           <input

@@ -13,7 +13,7 @@ export function RecruitmentFlow() {
           <SectionTitle
             eyebrow="İşe Alım / CV Analizi"
             title="İş ilanına göre CV belgelerini akıllı kategorilere ayırın."
-            description="İş ilanı linki veya manuel ilan metni ile PDF CV dosyaları Ollama destekli analiz edilir; servis yoksa demo fallback sonucu gösterilir."
+            description="İş ilanı linki veya manuel ilan metni ile PDF CV dosyaları yalnızca Ollama gemma4:31b-cloud modeliyle analiz edilir."
           />
         </div>
         <div className="mt-8">
