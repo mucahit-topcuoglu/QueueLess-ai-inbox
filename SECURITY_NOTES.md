@@ -1,36 +1,42 @@
 # SECURITY_NOTES.md
 
+## Security Notes
+
+QueueLess AI Inbox MVP güvenli, kontrollü ve demo odaklı bir kapsamda geliştirilir.
+
 ## No Real Email Sending
 
-QueueLess AI Inbox MVP gercek mail gondermez. Analyzer ve UI yalnizca insan onayina hazir cevap taslagi ve demo simulasyon durumu uretir.
+Gerçek mail gönderimi yok. Analyzer ve UI yalnızca insan onayına hazır cevap taslağı ve demo simülasyon durumu üretir.
 
-Kod kalite kontrolu uretim kodunda `sendEmail`, `nodemailer`, `smtp`, `mailgun` ve `sendgrid` patternlerini tarar. Bu PR'da gercek outbound mail entegrasyonu bulunmamaktadir.
+Gönderim sadece demo simülasyonudur. Onay butonu gerçek dış iletişim başlatmaz.
 
-## Human-in-the-loop Approval
+## Human Approval Required
 
-AI sadece analiz, kuyruk onerisi ve duzenlenebilir mail taslagi uretir. Son karar gorevli insandadir.
+İnsan onayı zorunlu. AI sadece analiz, kuyruk önerisi ve düzenlenebilir mail taslağı üretir. Son karar görevli insandadır.
 
-Onay akisi `simulateHumanApproval` fonksiyonuyla demo durum guncellemesi yapar. Bu fonksiyon gercek dis iletisim baslatmaz, yalnizca basvuruyu UI state icinde `Tamamlananlar` durumuna tasir.
+İnsan onayı olmadan gönderim simülasyonu tamamlanmamalıdır.
 
 ## Fake Demo Data Only
 
-Mock data yalnizca sahte demo isimleri ve `example.com` mail adresleri kullanir. Gercek kisi, kurum, belge, kimlik numarasi veya ozel veri kullanilmaz.
+Gerçek kişisel veri yok. Mock data yalnızca sahte demo isimleri, sahte başvurular ve güvenli örnek mail adresleri kullanır.
+
+Gerçek kişi, kurum, belge, kimlik numarası veya özel veri kullanılmaz.
 
 ## No API Keys
 
-MVP gercek AI API veya mail provider gerektirmez. Repo icine API key, token, secret veya provider credential eklenmedi.
+API key yok. MVP gerçek AI API veya mail provider gerektirmez. Repo içine API key, token, secret veya provider credential eklenmez.
 
 ## Risky Applications Require Manual Control
 
-Dusuk guven skoru, bilinmeyen belge turu, eksik attachment, hatali sender email, bos checklist veya imza dogrulanamiyor durumu `Riskli / Manuel Kontrol` kuyruguna gider.
+Riskli belgeler manuel kontrole gider. Düşük güven skoru, bilinmeyen belge türü, eksik attachment, hatalı sender email, boş checklist veya doğrulanamayan içerik Riskli / Manuel Kontrol kuyruğuna yönlendirilir.
 
-Riskli basvurularda gonderim simulasyonu engellenir. Taslak varsa bile otomatik onaya uygun sayilmaz.
+Riskli başvurularda gönderim simülasyonu engellenir. Taslak varsa bile otomatik onaya uygun sayılmaz.
 
 ## Future Production Security Requirements
 
-- Gercek mail entegrasyonu eklenirse OAuth veya provider-side secure auth kullanilmali.
-- Secrets sadece environment variable veya secret manager ile tutulmali.
+- Gerçek mail entegrasyonu eklenirse OAuth veya provider-side secure auth kullanılmalı.
+- Secrets sadece environment variable veya secret manager ile tutulmalı.
 - PII masking, audit log ve role-based access control eklenmeli.
-- Real AI API entegrasyonunda prompt injection, data minimization ve output review kontrolleri uygulanmali.
-- Outbound mail gonderimi icin explicit human approval, confirmation modal ve immutable audit trail zorunlu olmali.
-- Riskli belgeler icin ikinci insan review veya kurum policy kontrolu eklenmeli.
+- Real AI API entegrasyonunda prompt injection, data minimization ve output review kontrolleri uygulanmalı.
+- Outbound mail gönderimi için explicit human approval, confirmation modal ve immutable audit trail zorunlu olmalı.
+- Riskli belgeler için ikinci insan review veya kurum policy kontrolü eklenmeli.

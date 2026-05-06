@@ -2,9 +2,9 @@
 
 ## 1. Problem Nedir?
 
-Kurumlara gelen başvuru mailleri ve ekli belgelerin manuel incelenmesi önemli bir operasyon problemidir. Görevli kişiler başvuru metnini, ek dosyaları, belge türlerini, eksik alanları ve cevap ihtiyacını tek tek kontrol etmek zorunda kalır.
+Kurumlara gelen başvuru mailleri ve ekli belgelerin manuel incelenmesi tekrar eden, zaman alan ve hataya açık bir operasyon problemidir. Görevli kişi her başvuruda maili okur, ek dosyayı inceler, belge türünü anlamaya çalışır, eksik alanları kontrol eder, başvuruyu sınıflandırır ve cevap maili hazırlar.
 
-Bu süreç özellikle çok sayıda başvuru alan kurumlarda yavaşlar, tekrar eder ve insan hatasına açık hale gelir.
+Bu iş yükü özellikle insan kaynakları, öğrenci işleri, belediyeler, kamu kurumları ve staj başvurusu alan şirketlerde sık tekrar eder. Problem yalnızca "mail çokluğu" değil; mail, belge, checklist, kuyruk ve cevap sürecinin parçalı yönetilmesidir.
 
 ## 2. Bu Problem Kimleri Etkiler?
 
@@ -17,69 +17,86 @@ Bu süreç özellikle çok sayıda başvuru alan kurumlarda yavaşlar, tekrar ed
 
 ## 3. Manuel Süreç Bugün Nasıl İşliyor?
 
-Bugünkü manuel süreçte görevli kişi önce mail kutusunu açar ve yeni başvuruyu bulur. Ardından ekleri indirir veya görüntüler. Dosyanın hangi belge türüne ait olduğunu anlamaya çalışır. Başvuru formu, kimlik belgesi, transkript, izin formu veya destekleyici evrak gibi belgelerde zorunlu alanların tamamlanıp tamamlanmadığını kontrol eder.
+Manuel süreçte görevli kişi başvuru mailini açar, ek dosyayı indirir veya görüntüler, belgenin hangi başvuru türüne ait olduğunu anlamaya çalışır. Ardından başvuru formu, kimlik belgesi, transkript, izin formu, CV veya destekleyici evrak gibi dosyalarda zorunlu alanların tamamlanıp tamamlanmadığını kontrol eder.
 
-Eksik alanlar varsa bunları not eder. Sonra başvurunun hangi statüye alınacağını belirler: eksik evrak, inceleme, riskli kontrol veya tamamlanma gibi. En sonunda başvuru sahibine cevap maili yazar ve gönderir.
+Eksikler varsa not alır, başvuruyu doğru statüye taşır ve başvuru sahibine cevap maili yazar. Bu süreç her başvuru için yeniden yapılır.
+
+Manuel adımlar:
+
+1. Mail açılır.
+2. Ek indirilir.
+3. Belge türü anlaşılır.
+4. Eksik alanlar kontrol edilir.
+5. Eksikler not edilir.
+6. Başvuru sınıflandırılır.
+7. Cevap maili yazılır.
+8. Gönderilir.
 
 ## 4. Zaman Kaybı Nerede Oluşuyor?
 
-Zaman kaybı en çok tekrarlı mail okuma, belge açma, belge türünü anlama, eksik evrak not alma, başvuruyu sınıflandırma ve cevap maili yazma adımlarında oluşur.
+Zaman kaybı en çok tekrarlı mail okuma, belge kontrolü, eksik evrak not alma, cevap maili yazma ve sınıflandırma işlerinde oluşur. Görevli kişi her başvuruda benzer soruları yeniden cevaplar:
 
-Bu görevlerin çoğu karar destek niteliğindedir. Her başvuruda benzer sorular sorulur:
+- Bu mail hangi başvuru türüyle ilgili?
+- Ek dosya hangi belge türü?
+- Zorunlu alanlardan hangileri eksik?
+- Bu başvuru hangi kuyruğa gitmeli?
+- Başvuru sahibine hangi cevap yazılmalı?
 
-- Bu başvuru hangi belge türünü içeriyor?
-- Hangi zorunlu alanlar eksik?
-- Başvuru hangi kuyruğa gitmeli?
-- Başvuru sahibine hangi cevap verilmeli?
-
-QueueLess AI Inbox bu tekrar eden kontrol noktalarını tek bir analiz akışında toplar.
+QueueLess AI Inbox bu tekrar eden karar noktalarını tek analiz akışında toplar.
 
 ## 5. QueueLess AI Inbox Bu Problemi Nasıl Çözüyor?
 
-QueueLess AI Inbox mail ve belge analizini, checklist kontrolünü, kuyruk sınıflandırmasını ve cevap maili taslağı üretimini tek akışta toplar.
+QueueLess AI Inbox mail ve belge analizini, checklist kontrolünü, kuyruk sınıflandırmasını ve mail taslağı üretimini tek akışta toplar.
 
-Sistem gelen başvuruyu analiz eder, belge türünü tahmin eder, checklist'e göre eksikleri çıkarır, riskli durumları işaretler ve başvuruyu doğru kuyruğa önerir. Ardından görevlinin düzenleyip onaylayabileceği bir cevap maili taslağı oluşturur.
+Sistem gelen maili ve eki analiz eder, belge türünü tahmin eder, checklist'e göre eksik alanları çıkarır, riskli durumları işaretler ve başvuruyu doğru kuyruğa önerir. Ardından görevlinin düzenleyip onaylayabileceği bir cevap maili taslağı oluşturur.
 
-Bu sayede görevli kişi sıfırdan kontrol yapmak yerine AI destekli bir ön incelemeyi denetler.
+Görevli kişi sıfırdan inceleme yapmak yerine AI destekli ön incelemeyi doğrular. Bu da süreci hızlandırır, standartlaştırır ve daha görünür hale getirir.
 
 ## 6. Problem ile Fikir Neden Birebir Uyumlu?
 
-Problem, manuel başvuru evrakı kontrol sürecidir. Fikir de doğrudan bu süreci hedefler.
+Problem manuel başvuru evrakı kontrol sürecidir. Fikir doğrudan bu sürecin her adımına karşılık verir.
 
-QueueLess AI Inbox maili, eki, belge türünü, eksik alanları, kuyruk kararını ve cevap taslağını aynı iş akışında ele alır. Yani çözüm, problemin çevresindeki genel bir otomasyon değil; problemin her manuel adımına karşılık gelen somut bir destek sistemidir.
+Manuel süreç ile MVP karşılığı:
 
-Manuel süreçteki her adımın MVP karşılığı vardır:
-
-1. Mail açılır -> Mock Inbox'ta başvuru görünür.
-2. Ek indirilir -> Mock ek bilgisi analiz edilir.
-3. Belge türü anlaşılır -> AI belge türü tahmini yapar.
+1. Mail açılır -> Mock Inbox başvuruyu listeler.
+2. Ek indirilir -> Mock attachment metadata analiz edilir.
+3. Belge türü anlaşılır -> AI analyzer belge türü tahmini yapar.
 4. Eksik alanlar kontrol edilir -> Checklist engine eksikleri çıkarır.
-5. Eksikler not edilir -> Eksik alanlar listelenir.
+5. Eksikler not edilir -> Eksik alanlar detay ekranında görünür.
 6. Başvuru sınıflandırılır -> Queue engine doğru kuyruğu önerir.
-7. Cevap maili yazılır -> AI cevap taslağı oluşturur.
-8. Gönderilir -> İnsan onayı sonrası gönderim simüle edilir.
+7. Cevap maili yazılır -> AI insan onayına hazır taslak üretir.
+8. Gönderilir -> İnsan onayı sonrası gönderim yalnızca simüle edilir.
+
+Bu nedenle çözüm, problemin çevresinde duran genel bir otomasyon değil; problemin kendisini hedefleyen uçtan uca bir başvuru yönetimi MVP'sidir.
 
 ## 7. AI Neden Gerekli?
 
-AI, tekrar eden fakat bağlama göre değişen başvuru inceleme adımlarında karar desteği sağlar. Belge türü tahmini, mail özeti, eksik alan çıkarımı, risk tespiti ve cevap taslağı üretimi AI için doğal kullanım alanlarıdır.
+AI burada doğrudan problemle bağlantılıdır. Kullanım alanları:
 
-MVP'de gerçek AI API kullanılmaz. Bunun yerine deterministic mock AI analyzer kullanılır. Bu tercih demo güvenilirliğini artırır ve hackathon süresinde tekrarlanabilir sonuç sağlar. Mimari ise ileride gerçek AI API'ye bağlanabilecek şekilde planlanır.
+- Belge türü tahmini
+- Mail özeti çıkarma
+- Eksik alanları checklist'e göre belirleme
+- Düşük güven veya risk sinyallerini yakalama
+- Başvuru için uygun kuyruğu önermek
+- Cevap maili taslağı oluşturmak
+
+MVP'de gerçek AI API kullanılmaz. Deterministic mock AI analyzer kullanılır. Bu tercih demo güvenilirliğini artırır, testleri tekrarlanabilir yapar ve hackathon süresinde kontrollü çıktı sağlar. Mimari ileride gerçek AI API'ye bağlanabilecek şekilde planlanmıştır.
 
 ## 8. İnsan Onayı Neden Gerekli?
 
-Kurum belgeleri hassas olabilir. Başvuru sahibine gönderilecek yanıtlar hukuki, idari veya kişisel sonuçlar doğurabilir. Bu nedenle sistem otomatik mail göndermez.
+Kurum belgeleri ve başvuru yanıtları hassas olabilir. Yanlış veya otomatik gönderilen bir mail idari, hukuki veya güven ilişkisi açısından risk oluşturabilir.
 
-AI yalnızca taslak üretir. Son karar, düzenleme ve onay insandadır. Düşük güvenli, eksik veya riskli belgeler Riskli / Manuel Kontrol kuyruğuna yönlendirilir.
+Bu yüzden AI otomatik mail göndermez. AI yalnızca düzenlenebilir cevap taslağı üretir. Son karar, düzenleme ve onay insandadır. Düşük güvenli veya riskli başvurular Riskli / Manuel Kontrol kuyruğuna yönlendirilir.
 
 ## 9. MVP Demo Akışı
 
-Dashboard -> Gelen Başvuru -> AI Analizi -> Checklist -> Kuyruk -> Mail Taslağı -> İnsan Onayı -> Simüle Gönderim
+Dashboard -> Gelen Başvurular -> Eksik Staj Evrakı Başvurusu -> AI Analizi -> Checklist -> Eksik Alanlar -> Kuyruk Önerisi -> Mail Taslağı -> İnsan Onayı -> Simüle Gönderim -> Riskli Başvuru -> AI Transparency / Güvenlik Mesajı
 
-Demo sırasında hakem, bir başvurunun manuel kontrol yerine AI destekli bir akışla nasıl incelendiğini görür. Sistem belge türünü tahmin eder, eksik alanları listeler, kuyruğu önerir ve cevap maili taslağı üretir. Görevli taslağı onayladığında gerçek mail gönderilmez; yalnızca demo simülasyonu gösterilir.
+Demo sırasında hakem, manuel kontrol edilen bir başvurunun AI destekli ama insan onaylı akışla nasıl yönetildiğini görür.
 
 ## 10. Ölçülebilir Fayda
 
-Manuel süreç yaklaşık 6 dakika sürer:
+Manuel süreç yaklaşık 6 dakika:
 
 - Mail ve ekleri inceleme
 - Belge türünü anlama
@@ -87,7 +104,7 @@ Manuel süreç yaklaşık 6 dakika sürer:
 - Başvuruyu sınıflandırma
 - Cevap maili yazma
 
-QueueLess AI Inbox ile hedef süreç yaklaşık 2 dakikadır:
+QueueLess AI Inbox ile hedef süreç yaklaşık 2 dakika:
 
 - AI ön analizini kontrol etme
 - Checklist sonucunu doğrulama
@@ -97,11 +114,11 @@ Tahmini zaman kazancı: %66.
 
 ## 11. 1. Tur Jüriye Söylenecek 60 Saniyelik Anlatım
 
-QueueLess AI Inbox, kurumlara mail yoluyla gelen başvuruların manuel evrak kontrolü problemini hedefleyen bir AI destekli başvuru yönetim sistemi MVP'sidir. Bugün bir görevli başvuru mailini açıyor, ekleri indiriyor, belge türünü anlamaya çalışıyor, eksik alanları kontrol ediyor, başvuruyu sınıflandırıyor ve cevap mailini elle yazıyor. Bu süreç yaklaşık 6 dakika sürüyor ve her başvuruda tekrar ediyor.
+QueueLess AI Inbox, kurumlara mail yoluyla gelen başvuruların manuel evrak kontrolü problemini hedefleyen AI destekli bir başvuru kuyruğu MVP'sidir. Bugün bir görevli başvuru mailini açıyor, eki indiriyor, belge türünü anlamaya çalışıyor, eksik alanları kontrol ediyor, başvuruyu sınıflandırıyor ve cevap mailini yazıyor. Bu süreç yaklaşık 6 dakika sürüyor ve her başvuruda tekrar ediyor.
 
-Bizim çözümümüz bu akışı tek ekrana topluyor. Sistem gelen maili ve ek belgeyi analiz ediyor, belge türünü tahmin ediyor, checklist'e göre eksik alanları çıkarıyor, başvuruyu doğru kuyruğa öneriyor ve görevlinin onayına hazır cevap maili taslağı oluşturuyor. AI gerçek mail göndermez; insan son kontrolü yapar ve demo sırasında gönderim yalnızca simüle edilir.
+Biz bu akışı tek ekrana topluyoruz. Sistem gelen maili ve eki analiz ediyor, belge türünü tahmin ediyor, checklist'e göre eksik alanları çıkarıyor, başvuruyu doğru kuyruğa öneriyor ve insan onayına hazır cevap maili taslağı oluşturuyor. AI gerçek mail göndermiyor; insan son kontrolü yapıyor ve demo sırasında gönderim yalnızca simüle ediliyor.
 
-Bu MVP ile manuel 6 dakikalık süreci yaklaşık 2 dakikaya indirmeyi hedefliyoruz. Yani yaklaşık %66 zaman kazancı sağlıyoruz. Fikrimiz problemle birebir uyumlu çünkü doğrudan manuel başvuru evrakı kontrol sürecindeki her adımı daha hızlı, izlenebilir ve güvenli hale getiriyor.
+Bu MVP ile 6 dakikalık manuel süreci yaklaşık 2 dakikaya indirmeyi hedefliyoruz. Yani yaklaşık %66 zaman kazancı gösteriyoruz. Fikir problemle birebir uyumlu çünkü manuel başvuru evrakı kontrol sürecindeki her adımı daha hızlı, izlenebilir ve güvenli hale getiriyor.
 
 ## 12. Problem-Fikir Uyumu Checklist'i
 

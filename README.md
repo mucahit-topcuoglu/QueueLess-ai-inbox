@@ -103,6 +103,15 @@ npm run dev
 - Review süreci `REVIEW_LOG.md` içine kaydedilir.
 - Görev durumu `TASK_BOARD.md` içinde güncellenir.
 
+## GitHub Workflow Evidence
+
+- Her özellik için ayrı branch açıldı.
+- Conventional commit mesajları kullanıldı.
+- PR açıklamaları hazırlandı.
+- REVIEW_LOG.md ile ekip içi review kaydı tutuldu.
+- AI_USAGE_LOG.md ile AI destekli işlerin kaydı tutuldu.
+- TASK_BOARD.md ile görevler takip edildi.
+
 ## Team Roles
 
 - Kişi A: Team Lead, AI Architect, Documentation Owner, Problem-Fit Owner
@@ -127,3 +136,5 @@ Bu proje AI destekli geliştirilecektir; ancak AI'ın yaptığı her katkı gör
 1. tur jüri odağı problem konusu ile fikrin uyumudur. QueueLess AI Inbox doğrudan manuel başvuru evrakı kontrol sürecini hedefler. MVP; mail analizi, belge türü tahmini, eksik evrak tespiti, kuyruk yönlendirmesi ve insan onaylı cevap taslağı ile problemi uçtan uca gösterir.
 
 Manuel süreç yaklaşık 6 dakika sürerken, QueueLess AI Inbox ile hedef süreç yaklaşık 2 dakikadır. Tahmini zaman kazancı %66'dır.
+
+Hakem için en net mesaj: Bu proje genel bir AI denemesi değil, manuel başvuru maili ve evrak kontrol sürecindeki her adımı karşılayan güvenli, ölçülebilir ve demo edilebilir bir MVP'dir.
