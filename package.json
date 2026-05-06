@@ -8,10 +8,11 @@
     "lint": "node scripts/quality-check.mjs",
     "build": "next build",
     "check:logic": "node --experimental-strip-types scripts/build-check.mjs",
-    "test": "node --experimental-strip-types src/lib/analyzer.test.ts"
+    "test": "node --experimental-strip-types scripts/run-tests.mjs"
   },
   "dependencies": {
     "next": "^15.3.4",
+    "pdf-parse": "^2.4.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
