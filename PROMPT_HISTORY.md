@@ -1,5 +1,25 @@
 # PROMPT_HISTORY.md
 
+## Prompt Summary: Ollama Gemma AI Integration
+
+- Date: 2026-05-06
+- Requested by: Kisi C
+- Branch: feature/c-ollama-gemma-ai-integration
+
+## Summary
+
+Kisi C, QueueLess AI projesinin analiz ozelliklerinin Ollama uzerinde calisan `gemma4:31b-cloud` modeliyle entegre edilmesini istedi. Kapsam; Ollama client, safe JSON parser, recruitment/CV analiz endpointi, staj/belge analiz endpointi, PDF text extraction, fallback analyzer, health check endpointi, frontend uyumlu response formati, testler ve dokumantasyon guncellemelerini icerdi.
+
+## Key Instructions Captured
+
+- API key kullanilmayacak.
+- Gercek mail gonderilmeyecek.
+- Mock analyzer silinmeyecek, fallback olarak korunacak.
+- Model JSON disi cevap verirse guvenli parse/fallback calisacak.
+- PDF olmayan dosyalar ve buyuk dosyalar reddedilecek.
+- Ollama calismazsa kullaniciya anlasilir uyari ile fallback sonucu gosterilecek.
+- Env defaultlari `OLLAMA_BASE_URL=http://localhost:11434` ve `OLLAMA_MODEL=gemma4:31b-cloud` olmali.
+
 ## Prompt Summary: Branding and Logo Integration
 
 - Date: 2026-05-06

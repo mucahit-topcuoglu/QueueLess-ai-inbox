@@ -1,5 +1,19 @@
 # SECURITY_NOTES.md
 
+## Ollama AI Security Notes
+
+- AI local/cloud Ollama endpoint uzerinden calisir.
+- API key kullanilmaz.
+- PDF icerikleri sadece analiz icin modele gonderilir.
+- Gercek mail gonderimi yoktur.
+- Insan onayi zorunludur.
+- Riskli veya dusuk guvenli belgeler manuel kontrole gider.
+- Demo verileri ve analiz sonuclari kalici olarak saklanmaz.
+- PDF olmayan dosyalar reddedilir.
+- Buyuk PDF dosyalari reddedilir.
+- Cok uzun PDF metni modele gitmeden once truncate edilir.
+- Uretim ortaminda veri maskeleme, dosya izolasyonu, audit log ve erisim kontrolu eklenmelidir.
+
 ## Security Notes
 
 QueueLess AI Inbox MVP güvenli, kontrollü ve demo odaklı bir kapsamda geliştirilir.

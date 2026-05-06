@@ -52,6 +52,21 @@
 - Kişi A marka anlatımı ve problem-fikir uyumunu kontrol edecek.
 - Kişi C veri akışı ve ekran uyumunu kontrol edecek.
 
+## Ollama Integration Issues
+
+- [x] Ollama Gemma AI integration
+- [x] Recruitment / CV AI analysis
+- [x] Internship / document AI analysis
+- [x] PDF extraction and validation
+- [x] AI fallback and error handling
+- [ ] Final working MVP integration review
+
+## Current AI Integration Focus
+
+- Kisi C Ollama Gemma AI integration ekledi: PDF validation, safe JSON parse, fallback analyzer ve API endpointleri hazir.
+- Kisi B frontend response formati ve iki analiz akisini kontrol edecek.
+- Kisi A guvenlik ve problem-fikir uyumu review'u yapacak.
+
 ## Submission Readiness
 
 - [x] Problem-fikir uyumu anlatımı hazır.
