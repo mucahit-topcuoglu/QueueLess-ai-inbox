@@ -1,5 +1,5 @@
-import type { ApplicationRecord } from "@/types/application";
 import { confidenceLabel, queueLabel, statusTone } from "@/lib/uiLabels";
+import type { DashboardApplication } from "@/types/dashboard";
 import { EmptyState } from "./EmptyState";
 import { StatusBadge } from "./StatusBadge";
 
@@ -8,9 +8,9 @@ export function ApplicationList({
   selectedId,
   onSelect
 }: {
-  applications: ApplicationRecord[];
+  applications: DashboardApplication[];
   selectedId: string | null;
-  onSelect: (application: ApplicationRecord) => void;
+  onSelect: (application: DashboardApplication) => void;
 }) {
   if (applications.length === 0) {
     return (
@@ -48,7 +48,7 @@ export function ApplicationList({
                 <p className="mt-3 text-sm font-semibold text-slate-900">{application.subject}</p>
                 <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-600">{application.aiSummary}</p>
               </div>
-              <div className="grid gap-2 text-sm text-slate-600 sm:grid-cols-3 lg:min-w-80 lg:grid-cols-1">
+              <div className="grid gap-2 text-sm text-slate-600 sm:grid-cols-4 lg:min-w-80 lg:grid-cols-1">
                 <span>
                   <strong className="block text-xs uppercase text-slate-400">Ek</strong>
                   {application.attachmentName ?? "Ek yok"}
@@ -56,6 +56,10 @@ export function ApplicationList({
                 <span>
                   <strong className="block text-xs uppercase text-slate-400">Belge</strong>
                   {application.documentType} / {application.detectedApplicationType}
+                </span>
+                <span>
+                  <strong className="block text-xs uppercase text-slate-400">AI Kuyruk</strong>
+                  {queueLabel(application.recommendedQueue)}
                 </span>
                 <span>
                   <strong className="block text-xs uppercase text-slate-400">AI Güven</strong>

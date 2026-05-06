@@ -16,6 +16,7 @@ const requiredFiles = [
   "src/components/EmailDraftPanel.tsx",
   "src/components/AiDecisionPanel.tsx",
   "src/components/StatusBadge.tsx",
+  "src/types/dashboard.ts",
   "src/types/application.ts",
   "src/data/mockApplications.ts",
   "src/lib/analyzer.ts",

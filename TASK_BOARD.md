@@ -34,13 +34,13 @@
 - [x] #4 AI analyzer engine
 - [x] #5 Dashboard UI
 - [x] #6 Application detail screen
-- [x] #7 Queue filtering workflow
-- [x] #8 Human-approved email flow
-- [ ] #9 Testing and final audit (Kisi C analyzer tests added; final audit pending)
+- [x] #7 Queue filtering workflow (connected to UI state and mock analyzer output)
+- [x] #8 Human-approved email flow (risk-safe simulation added)
+- [ ] #9 Testing and final audit (UI integration scenarios added; final audit pending)
 - [ ] #10 Final submission
 
 ## Current Focus
 
-- Kisi B dashboard and demo UI connected to analyzed mock application output.
-- Next focus: run final validation, review UX and prepare demo walkthrough.
+- Kisi B queue filters and human approval flow connected to analyzed mock application output.
+- Next focus: Kisi C review for analyzer/queue UI compatibility and final validation.
 - Keep MVP scope safe: no real mail, no real personal data, no automatic sending.

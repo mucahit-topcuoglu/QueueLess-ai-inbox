@@ -1,5 +1,48 @@
 # AI_USAGE_LOG.md
 
+## Entry: Queue Filters and Human Approval Flow
+
+- Date: 2026-05-06
+- Branch: feature/b-queue-and-approval-flow
+- Owner: Kişi B
+- AI Role: Frontend Integration Agent / Human Approval Flow Agent
+
+## AI Assisted Work
+
+- Kuyruk filtreleme akışı tasarlandı.
+- Dashboard metrikleri mock data'ya bağlandı.
+- Mail taslağı düzenleme ve onay simülasyonu oluşturuldu.
+- Riskli başvurular için güvenli UI davranışı eklendi.
+
+## Human Reviewed Work
+
+- Kişi B UI davranışını kontrol edecek.
+- Kişi C analyzer ve queue data uyumunu kontrol edecek.
+- Kişi A insan onayı ve problem-fikir uyumu açısından kontrol edecek.
+
+## Files Affected
+
+- src/types/dashboard.ts
+- src/components/InboxDashboard.tsx
+- src/components/DashboardCards.tsx
+- src/components/ApplicationList.tsx
+- src/components/ApplicationDetail.tsx
+- src/components/EmailDraftPanel.tsx
+- src/components/AiDecisionPanel.tsx
+- scripts/quality-check.mjs
+- README.md
+- TEST_PLAN.md
+- SECURITY_NOTES.md
+- REVIEW_LOG.md
+- PROMPT_HISTORY.md
+- TASK_BOARD.md
+
+## Risks and Limitations
+
+- Entegrasyon mock data ve deterministic analyzer çıktısıyla çalışır.
+- Gerçek AI API çağrısı veya gerçek mail servisi kullanılmaz.
+- Riskli başvurular taslak gösterse bile onay simülasyonuna kapalıdır.
+
 ## Entry: Dashboard and Demo UI
 
 - Date: 2026-05-06
