@@ -1,46 +1,96 @@
 # TEST_PLAN.md
 
-## Test Plan Draft
+## Test Strategy
 
-Bu dosya QueueLess AI Inbox MVP tamamlandıkça doğrulama senaryolarını takip etmek için kullanılacaktır.
+QueueLess AI Inbox MVP için test stratejisi üç katmanlıdır:
 
-## Planned Test Areas
+- Deterministic logic tests: analyzer, checklist, queue engine ve human approval guard saf TypeScript fonksiyonlarıyla doğrulanır.
+- Build and quality checks: Next.js build, required file check ve outbound mail pattern taraması çalıştırılır.
+- Manual demo checks: dashboard, başvuru seçimi, mail taslağı ve riskli başvuru uyarısı demo sırasında kontrol edilir.
 
-### Mock Inbox
+Testlerde gerçek mail servisi, gerçek AI API, gerçek kişisel veri veya API key kullanılmaz.
 
-- [ ] Mock inbox görünür mü?
-- [ ] Mock başvurular listeleniyor mu?
-- [ ] Başvuru detayına gidilebiliyor mu?
+## Required Final Checks
 
-### AI Analyzer
+- [x] Mock inbox görünür mü?
+- [x] Analyzer doğru kuyruk öneriyor mu?
+- [x] Eksik evrak doğru tespit ediliyor mu?
+- [x] Riskli belge manuel kontrole gidiyor mu?
+- [x] Mail sadece simüle ediliyor mu?
+- [x] Dashboard kartları doğru çalışıyor mu?
+- [x] Build başarılı mı?
 
-- [ ] AI analyzer doğru kuyruk öneriyor mu?
-- [ ] Belge türü tahmini gösteriliyor mu?
-- [ ] Güven skoru veya analiz sonucu görünür mü?
+## Analyzer Tests
 
-### Checklist and Missing Documents
+- [x] Eksik staj evrakı Eksik Evrak kuyruğuna düşmeli.
+- [x] Eksiksiz staj evrakı İncelemeye Alındı kuyruğuna düşmeli.
+- [x] Düşük güven skorlu belge Riskli / Manuel Kontrol kuyruğuna düşmeli.
+- [x] İmza doğrulanamayan belge Riskli / Manuel Kontrol kuyruğuna düşmeli.
+- [x] Bilinmeyen belge türü manuel kontrol gerektiren duruma düşmeli.
+- [x] Eksik evrak mail taslağı eksik alanları listelemeli.
+- [x] Eksiksiz evrak mail taslağı incelemeye alındı bilgisini içermeli.
+- [x] Analyzer gerçek mail gönderimi yapmamalı.
 
-- [ ] Eksik evrak doğru tespit ediliyor mu?
-- [ ] Tamamlanan alanlar ve eksik alanlar ayrışıyor mu?
-- [ ] Eksik evrak başvuruları doğru kuyruğa gidiyor mu?
+## Queue Tests
 
-### Risk Handling
+- [x] Queue sayıları mock data üzerinden doğru hesaplanmalı.
+- [x] Status filtreleri doğru çalışmalı.
+- [x] Tamamlananlar ayrı sayılmalı.
+- [x] Riskli belgeler riskli kuyruğunda görünmeli.
+- [x] Onay bekleyen yanıtlar doğru sayılmalı.
 
-- [ ] Riskli belge manuel kontrole gidiyor mu?
-- [ ] Düşük güvenli analizler Riskli / Manuel Kontrol kuyruğuna alınıyor mu?
+## UI Manual Tests
 
-### Human-Approved Email Flow
+- [x] Dashboard ilk ekranda problem, çözüm ve demo güvenlik kuralını gösteriyor.
+- [x] Dashboard kartları başvuru sayılarını ve %66 zaman kazancını gösteriyor.
+- [x] Mock başvuru listesi ilk ekranda görünüyor.
+- [x] Başvuru seçilince detay paneli, checklist ve AI analiz alanı güncelleniyor.
+- [x] Riskli başvuruda manuel kontrol uyarısı gösteriliyor.
 
-- [ ] Mail taslağı oluşturuluyor mu?
-- [ ] Mail taslağı düzenlenebilir mi?
-- [ ] Mail sadece simüle ediliyor mu?
-- [ ] İnsan onayı olmadan gönderim simülasyonu tamamlanmıyor mu?
+## Landing and Multi-Flow UI Tests
 
-### Build and Quality
+- [ ] Anasayfa açılıyor mu?
+- [ ] Başla butonu çalışıyor mu?
+- [ ] Kullanım senaryosu seçimi çalışıyor mu?
+- [ ] Recruitment ekranı açılıyor mu?
+- [ ] Job posting link input'u çalışıyor mu?
+- [ ] PDF upload alanı görünüyor mu?
+- [ ] CV kategorileri gösteriliyor mu?
+- [ ] Academic ekranı açılıyor mu?
+- [ ] Belge türü seçimi çalışıyor mu?
+- [ ] Belge analizi kartları görünüyor mu?
+- [ ] Human approval mesajı görünür mü?
+- [ ] Responsive görünüm kabul edilebilir mi?
 
-- [ ] Build başarılı mı?
-- [ ] Lint başarılı mı?
-- [ ] Testler varsa başarılı mı?
+## Branding and Design Consistency Tests
+
+- [ ] QueueLess AI logosu navbar/header alanında görünüyor mu?
+- [ ] Ana sayfa, başla sayfası ve dashboard aynı green-black ürün dilini paylaşıyor mu?
+- [ ] Kart, buton, badge ve spacing yaklaşımı sayfalar arasında tutarlı mı?
+- [ ] Dashboard markalama alanı ana sayfa ile görsel olarak uyumlu mu?
+
+## Human Approval Tests
+
+- [x] Mail taslağı düzenlenebilir.
+- [x] Onay butonu gerçek mail göndermez.
+- [x] Onay sonrası simüle gönderim mesajı üretilir.
+- [x] Onay sonrası başvuru Tamamlananlar durumuna geçer.
+- [x] Riskli başvuruda gönderim simülasyonu engellenir.
+
+## Security Tests
+
+- [x] Gerçek mail gönderimi yok.
+- [x] Gerçek AI API çağrısı bulunmuyor.
+- [x] API key veya secret eklenmedi.
+- [x] Mock data yalnızca sahte demo verisi kullanıyor.
+- [x] Riskli ve düşük güvenli başvurular manuel kontrole yönleniyor.
+
+## Build and Lint Checks
+
+- [x] `npm run lint` final kontrol komutu.
+- [x] `npm run build` final kontrol komutu.
+- [x] `npm run test` test altyapısı varsa final kontrol komutu.
+- [ ] `npm audit` production öncesi ayrıca incelenmeli; local kurulum iki moderate severity vulnerability raporladı.
 
 ## Suggested Commands
 
@@ -50,63 +100,9 @@ npm run build
 npm run test
 ```
 
-## UI Demo Test Scenarios
+## Known Limitations
 
-- [x] Dashboard kartları görünüyor mu?
-- [x] Başvuru listesi görünüyor mu?
-- [x] Kuyruk filtreleri çalışıyor mu?
-- [x] Başvuru detay paneli açılıyor mu?
-- [x] Checklist görünümü doğru mu?
-- [x] Mail taslağı görünüyor mu?
-- [x] Mail gönderimi sadece simüle ediliyor mu?
-- [x] Empty state çalışıyor mu?
-
-## UI Verification Plan
-
-- Dashboard açıldığında jüri problemi ve çözümü ilk ekranda okuyabilmeli.
-- `Tümü`, `Eksik Evrak`, `İncelemeye Alındı` ve `Riskli / Manuel Kontrol` filtreleri mock data üzerinden listeyi değiştirmeli.
-- Risk flag bulunan başvuruda manuel kontrol uyarısı görünmeli.
-- `Taslağı Düzenle` butonu taslağı textarea olarak düzenlenebilir yapmalı.
-- `Maili Onayla ve Gönder` gerçek outbound işlem başlatmamalı; yalnızca simülasyon mesajı göstermeli.
-- Onay sonrası seçili başvuru UI içinde `Tamamlananlar` kuyruğuna taşınmalı.
-
-## Queue and Human Approval Integration Tests
-
-- [ ] Kuyruk filtreleri doğru çalışıyor mu?
-- [ ] Dashboard kartları mock data'dan doğru hesaplanıyor mu?
-- [ ] Başvuru seçilince detay paneli güncelleniyor mu?
-- [ ] Mail taslağı düzenlenebiliyor mu?
-- [ ] Onay sonrası başvuru Tamamlananlar durumuna geçiyor mu?
-- [ ] Riskli başvuruda gönderim simülasyonu engelleniyor mu?
-- [ ] Gerçek mail gönderimi yapılmadığı doğrulanıyor mu?
-
-## Test Scenarios: Mock AI Analyzer and Queue Engine
-
-- [x] Eksik staj evraki Eksik Evrak kuyruguna dusmeli.
-- [x] Eksiksiz staj evraki Incelemeye Alindi kuyruguna dusmeli.
-- [x] Dusuk guven skorlu belge Riskli / Manuel Kontrol kuyruguna dusmeli.
-- [x] Imza dogrulanamayan belge Riskli / Manuel Kontrol kuyruguna dusmeli.
-- [x] Eksik evrak icin mail taslagi eksikleri listelemeli.
-- [x] Eksiksiz evrak icin mail taslagi incelemeye alindi metni uretmeli.
-- [x] Analyzer hicbir sekilde gercek mail gondermemeli.
-
-## Edge Case Coverage
-
-- [x] Eksik attachment risk flag uretir.
-- [x] Cok dusuk confidence score manuel kontrole gider.
-- [x] Bilinmeyen belge turu manuel kontrole gider.
-- [x] Imza dogrulanamiyor ifadesi manuel kontrol risk flag uretir.
-- [x] Checklist tamamen bossa manuel kontrol risk flag uretir.
-- [x] Sender email formati hataliysa risk flag uretir.
-- [x] Ayni basvuru tekrar gelmis olabilir durumu risk flag olarak temsil edilir.
-
-## Verification Result
-
-- Date: 2026-05-06
-- Branch: feature/c-ai-analyzer-and-mock-data
-- Owner: Kisi C
-- Commands:
-  - npm run lint
-  - npm run build
-  - npm run test
-- Result: Passed
+- Gerçek mail inbox entegrasyonu yoktur; MVP mock inbox ile çalışır.
+- Gerçek AI API entegrasyonu yoktur; analyzer deterministic mock karar kuralları kullanır.
+- Gerçek belge OCR veya dosya parsing yoktur.
+- Browser tabanlı kapsamlı E2E test final MVP kapsamı dışında bırakılmıştır.

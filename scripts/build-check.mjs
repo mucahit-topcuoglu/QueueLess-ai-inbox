@@ -6,6 +6,7 @@ const root = fileURLToPath(new URL("..", import.meta.url));
 const modules = [
   "src/lib/constants.ts",
   "src/lib/emailDraft.ts",
+  "src/lib/approvalFlow.ts",
   "src/lib/queueEngine.ts",
   "src/data/mockApplications.ts",
   "src/lib/analyzer.ts"
