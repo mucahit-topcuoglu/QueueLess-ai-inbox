@@ -139,3 +139,24 @@ Kişi A, QueueLess AI Inbox projesini 1. tur jüri değerlendirmesine ve final t
 - AI_USAGE_LOG.md ve REVIEW_LOG.md final formatta görünür olmalı.
 - TASK_BOARD.md içinde #10 Final submission güncellenmeli.
 - Gerçek mail, gerçek AI API veya gerçek kişisel veri eklenmemeli.
+
+## Prompt Summary: Final Submission Promptu
+
+- Date: 2026-05-06
+- Requested by: Kişi A
+- Branch: chore/a-final-submission
+
+## Summary
+
+Kişi A, QueueLess AI Inbox projesinin final teknik teslim ve jüri demo provası için hazırlanmasını istedi. Kapsam; final teknik kontrol, uygulama çalışma kontrolü, repo dosya kontrolü, hakem checklist final kontrolü, GitHub geçmişi gösterim planı, demo provası, takım içi demo görev dağılımı, jüri soru-cevap hazırlığı ve SUBMISSION_CHECKLIST.md oluşturulmasını içerdi.
+
+## Key Instructions Captured
+
+- Büyük özellik geliştirme yapılmamalı.
+- Gerçek mail entegrasyonu eklenmemeli.
+- Gerçek AI API entegrasyonu eklenmemeli.
+- Gerçek kişisel veri kullanılmamalı.
+- `npm run lint`, `npm run build` ve test script varsa `npm run test` çalıştırılmalı.
+- `npm run dev` ile uygulama açılışı kontrol edilmeli.
+- #10 Final submission Done yapılmalı.
+- Commit mesajı `chore: prepare final submission and demo rehearsal` olmalı.
