@@ -198,3 +198,28 @@
 - [x] Jüri soru-cevap hazırlığı yapıldı.
 - [x] SUBMISSION_CHECKLIST.md oluşturuldu.
 - [x] #10 Final submission Done yapıldı.
+
+## Review Entry: Gemini AI Provider Switch
+
+- Owner: Kişi C
+- Reviewer: Kişi B
+- Optional Reviewer: Kişi A
+- Branch: feature/c-switch-from-gemma-to-gemini
+- Result: Ready for review
+
+## Reviewed Changes
+
+- Gemma/Ollama yerine Gemini API server-side analiz akışı eklendi.
+- Recruitment ve document endpointleri PDF text extraction ve fallback analyzer ile güncellendi.
+- API key güvenliği, `.env.local` kuralı ve frontend'e key sızmama kontrolü dokümante edildi.
+
+## Checklist
+
+- [ ] Gemini health endpoint çalışıyor.
+- [ ] Recruitment endpoint çalışıyor.
+- [ ] Document endpoint çalışıyor.
+- [ ] PDF kontrolü var.
+- [ ] JSON parse güvenli.
+- [ ] Fallback analyzer var.
+- [ ] Gerçek mail gönderimi yok.
+- [ ] API key frontend'e sızmıyor.

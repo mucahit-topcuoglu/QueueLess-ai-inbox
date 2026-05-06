@@ -106,3 +106,20 @@ npm run test
 - Gerçek AI API entegrasyonu yoktur; analyzer deterministic mock karar kuralları kullanır.
 - Gerçek belge OCR veya dosya parsing yoktur.
 - Browser tabanlı kapsamlı E2E test final MVP kapsamı dışında bırakılmıştır.
+
+## Gemini API Tests
+
+- [ ] `GEMINI_API_KEY` yoksa `/api/health/gemini` kontrollü hata dönüyor mu?
+- [ ] API key response içinde görünmüyor mu?
+- [x] PDF olmayan dosya reddediliyor mu?
+- [x] 10MB üstü PDF reddediliyor mu?
+- [ ] Recruitment endpoint iş ilanı + CV PDF analizi döndürüyor mu?
+- [ ] Document endpoint checklist, eksik alan ve risk sonucu döndürüyor mu?
+- [x] Gemini JSON parse hatasında uygulama crash etmiyor mu?
+- [x] Gemini hata verirse fallback analyzer çalışıyor mu?
+- [x] PDF içerikleri console log ile yazdırılmıyor mu?
+- [x] Gerçek mail gönderimi yapılmıyor mu?
+
+## Gemini Known Limitation Update
+
+- Gemini API entegrasyonu `.env.local` içindeki API key ile server-side çalışır; API unavailable olursa fallback analyzer kullanılır.

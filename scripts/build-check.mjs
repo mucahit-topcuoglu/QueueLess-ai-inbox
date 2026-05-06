@@ -9,7 +9,10 @@ const modules = [
   "src/lib/approvalFlow.ts",
   "src/lib/queueEngine.ts",
   "src/data/mockApplications.ts",
-  "src/lib/analyzer.ts"
+  "src/lib/analyzer.ts",
+  "src/lib/ai/geminiClient.ts",
+  "src/lib/ai/analyzeRecruitment.ts",
+  "src/lib/ai/analyzeDocument.ts"
 ];
 
 for (const modulePath of modules) {

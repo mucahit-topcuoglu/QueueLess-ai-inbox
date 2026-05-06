@@ -61,3 +61,16 @@
 - [x] GitHub workflow kanıtları dokümante edildi.
 - [x] Final PR review için kayıt hazırlandı.
 - [x] Final teslim checklist'i hazırlandı.
+
+## Gemini Provider Switch
+
+- [x] #18 Gemini API provider switch — Ready for review
+- [x] #19 Recruitment / CV Gemini analysis — Ready for review
+- [x] #20 Internship / document Gemini analysis — Ready for review
+- [x] #21 API key security and fallback validation — Ready for review
+
+## Current Gemini Review Focus
+
+- Kişi C Gemini API geçişini, PDF analiz endpointlerini ve fallback güvenliğini review için hazırladı.
+- Kişi B frontend response formatını kontrol edecek.
+- Kişi A API key güvenliği ve problem-fikir uyumunu kontrol edecek.

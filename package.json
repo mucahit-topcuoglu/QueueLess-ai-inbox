@@ -11,7 +11,9 @@
     "test": "node --experimental-strip-types scripts/run-tests.mjs"
   },
   "dependencies": {
+    "@google/genai": "^1.52.0",
     "next": "^15.3.4",
+    "pdf-parse": "^2.4.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
