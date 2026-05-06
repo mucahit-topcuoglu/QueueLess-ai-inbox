@@ -8,7 +8,7 @@
     "lint": "node scripts/quality-check.mjs",
     "build": "next build",
     "check:logic": "node --experimental-strip-types scripts/build-check.mjs",
-    "test": "node --experimental-strip-types src/lib/analyzer.test.ts"
+    "test": "node --experimental-strip-types scripts/run-tests.mjs"
   },
   "dependencies": {
     "next": "^15.3.4",

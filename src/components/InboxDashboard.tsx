@@ -2,7 +2,9 @@
 
 import { useMemo, useState } from "react";
 import { PRODUCT_QUEUES } from "@/lib/constants";
-import type { ApplicationRecord, ProductQueue } from "@/types/application";
+import { simulateHumanApproval } from "@/lib/approvalFlow";
+import { calculateQueueCounts, filterApplicationsByQueue } from "@/lib/queueEngine";
+import type { ApplicationRecord } from "@/types/application";
 import type { DashboardApplication } from "@/types/dashboard";
 import { DashboardCards } from "./DashboardCards";
 import { ApplicationDetail } from "./ApplicationDetail";
@@ -11,7 +13,6 @@ import { ErrorState } from "./ErrorState";
 import { LoadingState } from "./LoadingState";
 import { QueueTabs, type QueueFilter } from "./QueueTabs";
 
-const APPROVAL_QUEUE = PRODUCT_QUEUES[3];
 const RISK_QUEUE = PRODUCT_QUEUES[4];
 const COMPLETED_QUEUE = PRODUCT_QUEUES[5];
 
@@ -22,28 +23,14 @@ export function InboxDashboard({ initialApplications }: { initialApplications: A
   const [isLoading] = useState(false);
   const [error] = useState("");
 
-  const counts = useMemo(() => {
-    const nextCounts: Record<string, number> = { all: applications.length };
-
-    for (const queue of PRODUCT_QUEUES) {
-      nextCounts[queue] = applications.filter((application) => application.status === queue).length;
-    }
-
-    nextCounts[APPROVAL_QUEUE] = applications.filter(isAwaitingHumanApproval).length;
-
-    return nextCounts;
-  }, [applications]);
+  const counts = useMemo(() => calculateQueueCounts(applications), [applications]);
 
   const filteredApplications = useMemo(() => {
     if (activeQueue === "Tümü") {
       return applications;
     }
 
-    if (activeQueue === APPROVAL_QUEUE) {
-      return applications.filter(isAwaitingHumanApproval);
-    }
-
-    return applications.filter((application) => application.status === activeQueue);
+    return filterApplicationsByQueue(applications, activeQueue);
   }, [activeQueue, applications]);
 
   const selectedApplication = filteredApplications.find((application) => application.id === selectedId) ?? filteredApplications[0] ?? null;
@@ -52,7 +39,7 @@ export function InboxDashboard({ initialApplications }: { initialApplications: A
     setApplications((currentApplications) =>
       currentApplications.map((application) =>
         application.id === applicationId
-          ? { ...application, generatedReplyDraft: draft, status: COMPLETED_QUEUE as ProductQueue }
+          ? simulateHumanApproval(application, draft).application
           : application
       )
     );
@@ -143,10 +130,4 @@ function initializeDashboardApplications(applications: ApplicationRecord[]): Das
       recommendedQueue
     };
   });
-}
-
-function isAwaitingHumanApproval(application: DashboardApplication): boolean {
-  return Boolean(application.generatedReplyDraft)
-    && application.status !== COMPLETED_QUEUE
-    && application.recommendedQueue !== RISK_QUEUE;
 }
