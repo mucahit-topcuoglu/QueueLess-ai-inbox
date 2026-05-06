@@ -11,6 +11,12 @@ export type GeminiJsonRequest = {
   timeoutMs?: number;
 };
 
+export type GeminiInlineFile = {
+  fileName: string;
+  mimeType: string;
+  data: string;
+};
+
 export class GeminiRequestError extends Error {
   constructor(message = "Gemini API cagrisi tamamlanamadi. Analiz fallback moduyla devam eder.") {
     super(message);
@@ -44,6 +50,60 @@ export async function callGeminiJson<T>({
     const response = await withTimeout(ai.models.generateContent({
       model,
       contents: userPrompt,
+      config: {
+        systemInstruction: systemPrompt,
+        responseMimeType: "application/json",
+        temperature
+      }
+    }), timeoutMs);
+    const responseText = response.text ?? "";
+
+    if (!responseText.trim()) {
+      throw new GeminiRequestError("Gemini bos yanit dondurdu. Analiz fallback moduyla devam eder.");
+    }
+
+    return parseJsonSafely<T>(responseText);
+  } catch (error) {
+    if (error instanceof GeminiRequestError) {
+      throw error;
+    }
+
+    throw new GeminiRequestError(createGeminiErrorMessage(error));
+  }
+}
+
+export async function callGeminiJsonWithInlineFiles<T>({
+  systemPrompt,
+  userPrompt,
+  files,
+  temperature = 0.1,
+  timeoutMs = DEFAULT_TIMEOUT_MS
+}: GeminiJsonRequest & { files: GeminiInlineFile[] }): Promise<T> {
+  const apiKey = process.env.GEMINI_API_KEY?.trim();
+  const model = process.env.GEMINI_MODEL?.trim() || DEFAULT_MODEL;
+
+  if (!apiKey) {
+    throw new GeminiRequestError("GEMINI_API_KEY tanimli degil. Analiz fallback moduyla devam eder.");
+  }
+
+  const ai = new GoogleGenAI({ apiKey });
+  const parts = [
+    { text: userPrompt },
+    ...files.flatMap((file) => [
+      { text: `Attached PDF file: ${file.fileName}` },
+      {
+        inlineData: {
+          mimeType: file.mimeType,
+          data: file.data
+        }
+      }
+    ])
+  ];
+
+  try {
+    const response = await withTimeout(ai.models.generateContent({
+      model,
+      contents: [{ role: "user", parts }] as never,
       config: {
         systemInstruction: systemPrompt,
         responseMimeType: "application/json",

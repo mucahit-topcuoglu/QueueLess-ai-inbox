@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { analyzeRecruitment } from "@/lib/ai/analyzeRecruitment";
+import type { GeminiInlineFile } from "@/lib/ai/geminiClient";
 import { extractPdfText, PdfValidationError, truncateForModel } from "@/lib/pdf/extractPdfText";
 import type { UploadedTextFile } from "@/lib/ai/schemas";
 
@@ -25,24 +26,26 @@ export async function POST(request: Request) {
     }
 
     const cvTexts: UploadedTextFile[] = [];
+    const pdfFiles: GeminiInlineFile[] = [];
     const extractionWarnings: string[] = [];
 
     for (const file of files) {
       const extracted = await extractPdfTextOrRisk(file);
       cvTexts.push(extracted);
+      pdfFiles.push(await toGeminiInlinePdf(file));
 
       if (extracted.extractionError) {
         extractionWarnings.push(`${file.name}: ${extracted.extractionError}`);
       }
     }
 
-    const result = await analyzeRecruitment(jobTextResult.text, cvTexts);
+    const result = await analyzeRecruitment(jobTextResult.text, cvTexts, pdfFiles);
 
     return NextResponse.json({
       ok: true,
       mode: result.mode,
       ...result.data,
-      warning: [result.warning, jobTextResult.warning, ...extractionWarnings].filter(Boolean).join(" ") || undefined
+      warning: buildAnalysisWarning(result.mode, result.warning, jobTextResult.warning, extractionWarnings)
     });
   } catch (error) {
     if (error instanceof PdfValidationError) {
@@ -70,6 +73,24 @@ async function extractPdfTextOrRisk(file: File): Promise<UploadedTextFile> {
 
     throw error;
   }
+}
+
+async function toGeminiInlinePdf(file: File): Promise<GeminiInlineFile> {
+  const buffer = Buffer.from(await file.arrayBuffer());
+
+  return {
+    fileName: file.name,
+    mimeType: file.type || "application/pdf",
+    data: buffer.toString("base64")
+  };
+}
+
+function buildAnalysisWarning(mode: string, providerWarning: string | undefined, jobWarning: string | undefined, extractionWarnings: string[]): string | undefined {
+  if (mode === "gemini" && extractionWarnings.length > 0) {
+    return [providerWarning, jobWarning, "Yerel PDF metin çıkarımı yapılamadı; Gemini ekli PDF dosyasını doğrudan analiz etti."].filter(Boolean).join(" ");
+  }
+
+  return [providerWarning, jobWarning, ...extractionWarnings].filter(Boolean).join(" ") || undefined;
 }
 
 async function resolveJobText(jobUrl: string, manualJobText: string): Promise<{ text: string; warning?: string }> {
