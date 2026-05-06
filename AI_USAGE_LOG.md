@@ -1,100 +1,119 @@
 # AI_USAGE_LOG.md
 
-## Entry: MVP Validation and Security Checks
+## Entry: AGENTS.md Project Instructions
 
 - Date: 2026-05-06
-- Branch: test/c-final-validation
-- Owner: Kisi C
-- AI Role: QA Agent / Security Review Agent
+- Branch: docs/a-agents-instructions
+- Owner: Kişi A
+- AI Role: Plan Agent
 
 ## AI Assisted Work
 
-- Test senaryolari cikarildi.
-- Analyzer ve queue edge-case'leri kontrol edildi.
-- Guvenlik riskleri incelendi.
-- Final AI audit icerigi hazirlandi.
+- Proje adı, hedefi, MVP kapsamı ve güvenlik kuralları kalıcı talimat dosyasına dönüştürüldü.
+- Ekip rolleri ve GitHub workflow kuralları yapılandırıldı.
 
 ## Human Reviewed Work
 
-- Kisi C test sonuclarini kontrol edecek.
-- Kisi A final audit ve hakem uyumunu kontrol edecek.
-- Kisi B UI demo akisini kontrol edecek.
+- Kişi A proje kurallarını kontrol eder.
+- Kişi C güvenlik ve teknik kapsam uyumunu review eder.
 
-## Files Affected
+## Affected Files
 
-- src/lib/approvalFlow.ts
+- AGENTS.md
+
+## Risk / Limitation
+
+- Bu kayıt yalnızca talimat dosyası içindir; ürün davranışı uygulamaz.
+
+## Entry: Problem Fit and Hackathon Documentation
+
+- Date: 2026-05-06
+- Branch: docs/a-problem-fit-and-documentation
+- Owner: Kişi A
+- AI Role: Documentation Agent
+
+## AI Assisted Work
+
+- Problem-fikir uyumu metni hazırlandı.
+- Mimari plan oluşturuldu.
+- Roadmap oluşturuldu.
+- GitHub workflow belgelendi.
+- Güvenlik ve insan onayı kuralları dokümante edildi.
+
+## Human Reviewed Work
+
+- Kişi A kapsamı ve jüri anlatımını kontrol eder.
+- Kişi C teknik doğruluk ve güvenlik sınırlarını review eder.
+- Kişi B demo akışı açısından opsiyonel review yapar.
+
+## Affected Files
+
+- README.md
+- PROBLEM_FIT.md
+- ARCHITECTURE.md
+- ROADMAP.md
+- TASK_BOARD.md
+- AI_USAGE_LOG.md
+- REVIEW_LOG.md
+- PROMPT_HISTORY.md
+- SECURITY_NOTES.md
+- DEMO_SCRIPT.md
+- FINAL_AI_AUDIT.md
+- TEST_PLAN.md
+
+## Risk / Limitation
+
+- Bu adım dokümantasyon odaklıdır; uygulama davranışı tek başına kanıtlamaz.
+
+## Entry: Mock AI Analyzer and Application Data
+
+- Date: 2026-05-06
+- Branch: feature/c-ai-analyzer-and-mock-data
+- Owner: Kişi C
+- AI Role: Expert Developer Agent
+
+## AI Assisted Work
+
+- Veri modeli tasarlandı.
+- Mock başvuru senaryoları oluşturuldu.
+- Deterministic analyzer karar kuralları yazıldı.
+- Checklist ve queue mantığı tasarlandı.
+- Test senaryoları çıkarıldı.
+
+## Human Reviewed Work
+
+- Kişi C logic doğruluğunu kontrol eder.
+- Kişi B frontend entegrasyonu açısından çıktı formatını kontrol eder.
+- Kişi A güvenlik ve problem-fikir uyumu açısından kontrol eder.
+
+## Affected Files
+
+- src/types/application.ts
+- src/data/mockApplications.ts
+- src/lib/analyzer.ts
 - src/lib/queueEngine.ts
+- src/lib/emailDraft.ts
+- src/lib/constants.ts
 - src/lib/analyzer.test.ts
-- src/lib/queueEngine.test.ts
-- src/lib/approvalFlow.test.ts
-- scripts/run-tests.mjs
-- scripts/build-check.mjs
-- scripts/quality-check.mjs
-- src/components/InboxDashboard.tsx
 - TEST_PLAN.md
 - SECURITY_NOTES.md
-- FINAL_AI_AUDIT.md
 - AI_USAGE_LOG.md
 - REVIEW_LOG.md
 - PROMPT_HISTORY.md
 - TASK_BOARD.md
 
-## Risks and Limitations
+## Risk / Limitation
 
-- QA tests deterministic mock data ile calisir.
-- Gercek mail servisi, gercek AI API veya gercek kisisel veri kullanilmaz.
-- Browser tabanli E2E test eklenmedi; Next.js build, logic tests ve manual QA checklist ile dogrulama yapildi.
-- Riskli basvuruda simulasyon guard'i test edildi.
-
-## Entry: Queue Filters and Human Approval Flow
-
-- Date: 2026-05-06
-- Branch: feature/b-queue-and-approval-flow
-- Owner: Kişi B
-- AI Role: Frontend Integration Agent / Human Approval Flow Agent
-
-## AI Assisted Work
-
-- Kuyruk filtreleme akışı tasarlandı.
-- Dashboard metrikleri mock data'ya bağlandı.
-- Mail taslağı düzenleme ve onay simülasyonu oluşturuldu.
-- Riskli başvurular için güvenli UI davranışı eklendi.
-
-## Human Reviewed Work
-
-- Kişi B UI davranışını kontrol edecek.
-- Kişi C analyzer ve queue data uyumunu kontrol edecek.
-- Kişi A insan onayı ve problem-fikir uyumu açısından kontrol edecek.
-
-## Files Affected
-
-- src/types/dashboard.ts
-- src/components/InboxDashboard.tsx
-- src/components/DashboardCards.tsx
-- src/components/ApplicationList.tsx
-- src/components/ApplicationDetail.tsx
-- src/components/EmailDraftPanel.tsx
-- src/components/AiDecisionPanel.tsx
-- scripts/quality-check.mjs
-- README.md
-- TEST_PLAN.md
-- SECURITY_NOTES.md
-- REVIEW_LOG.md
-- PROMPT_HISTORY.md
-- TASK_BOARD.md
-
-## Risks and Limitations
-
-- Entegrasyon mock data ve deterministic analyzer çıktısıyla çalışır.
-- Gerçek AI API çağrısı veya gerçek mail servisi kullanılmaz.
-- Riskli başvurular taslak gösterse bile onay simülasyonuna kapalıdır.
+- Analyzer deterministic mock davranış üretir; gerçek AI API kullanılmaz.
+- Mock data sahte demo verisidir; gerçek kişisel veri içermez.
+- Cevap üretimi yalnızca taslaktır; gerçek mail gönderimi yapmaz.
 
 ## Entry: Dashboard and Demo UI
 
 - Date: 2026-05-06
 - Branch: feature/b-dashboard-and-demo-ui
 - Owner: Kişi B
-- AI Role: Frontend Assistant / UX Agent
+- AI Role: Frontend / UX Agent
 
 ## AI Assisted Work
 
@@ -105,11 +124,11 @@
 
 ## Human Reviewed Work
 
-- Kişi B UI kullanılabilirliğini kontrol edecek.
-- Kişi A problem-fikir uyumu ve demo anlatımı açısından kontrol edecek.
-- Kişi C veri modeli ve analyzer çıktısıyla uyumu kontrol edecek.
+- Kişi B UI kullanılabilirliğini kontrol eder.
+- Kişi A problem-fikir uyumu ve demo anlatımı açısından kontrol eder.
+- Kişi C veri modeli ve analyzer çıktısıyla uyumu kontrol eder.
 
-## Files Affected
+## Affected Files
 
 - package.json
 - next.config.mjs
@@ -140,96 +159,136 @@
 - PROMPT_HISTORY.md
 - TASK_BOARD.md
 
-## Risks and Limitations
+## Risk / Limitation
 
 - UI mock local data ile çalışır; gerçek mail inbox entegrasyonu yoktur.
-- Gerçek AI API çağrısı yapılmaz; Kişi C deterministic analyzer çıktısı kullanılır.
-- Mail onayı yalnızca demo simülasyonu üretir ve outbound iletişim başlatmaz.
+- Gerçek AI API çağrısı yapılmaz.
+- Mail onayı yalnızca demo simülasyonu üretir.
 
-## Entry: Mock AI Analyzer and Application Data
+## Entry: Queue Filters and Human Approval Flow
 
 - Date: 2026-05-06
-- Branch: feature/c-ai-analyzer-and-mock-data
-- Owner: Kisi C
-- AI Role: Expert Developer Agent / AI Workflow Agent
+- Branch: feature/b-queue-and-approval-flow
+- Owner: Kişi B
+- AI Role: Frontend / UX Agent
 
 ## AI Assisted Work
 
-- Veri modeli tasarlandi.
-- Mock basvuru senaryolari olusturuldu.
-- Analyzer karar kurallari yazildi.
-- Checklist ve queue mantigi tasarlandi.
-- Test senaryolari cikarildi.
+- Kuyruk filtreleme akışı tasarlandı.
+- Dashboard metrikleri mock data'ya bağlandı.
+- Mail taslağı düzenleme ve onay simülasyonu oluşturuldu.
+- Riskli başvurular için güvenli UI davranışı eklendi.
 
 ## Human Reviewed Work
 
-- Kisi C logic dogrulugunu kontrol edecek.
-- Kisi B frontend entegrasyonu acisindan cikti formatini kontrol edecek.
-- Kisi A guvenlik ve problem-fikir uyumu acisindan kontrol edecek.
+- Kişi B UI davranışını kontrol eder.
+- Kişi C analyzer ve queue data uyumunu kontrol eder.
+- Kişi A insan onayı ve problem-fikir uyumu açısından kontrol eder.
 
-## Files Affected
+## Affected Files
 
-- src/types/application.ts
-- src/data/mockApplications.ts
-- src/lib/analyzer.ts
-- src/lib/queueEngine.ts
-- src/lib/emailDraft.ts
-- src/lib/constants.ts
-- src/lib/analyzer.test.ts
+- src/types/dashboard.ts
+- src/components/InboxDashboard.tsx
+- src/components/DashboardCards.tsx
+- src/components/ApplicationList.tsx
+- src/components/ApplicationDetail.tsx
+- src/components/EmailDraftPanel.tsx
+- src/components/AiDecisionPanel.tsx
+- scripts/quality-check.mjs
+- README.md
 - TEST_PLAN.md
 - SECURITY_NOTES.md
+- REVIEW_LOG.md
+- PROMPT_HISTORY.md
+- TASK_BOARD.md
+
+## Risk / Limitation
+
+- Entegrasyon mock data ve deterministic analyzer çıktısıyla çalışır.
+- Gerçek AI API çağrısı veya gerçek mail servisi kullanılmaz.
+- Riskli başvurular taslak gösterse bile onay simülasyonuna kapalıdır.
+
+## Entry: MVP Validation and Security Checks
+
+- Date: 2026-05-06
+- Branch: test/c-final-validation
+- Owner: Kişi C
+- AI Role: QA / Security Agent
+
+## AI Assisted Work
+
+- Test senaryoları çıkarıldı.
+- Analyzer ve queue edge-case'leri kontrol edildi.
+- Güvenlik riskleri incelendi.
+- Final AI audit içeriği hazırlandı.
+
+## Human Reviewed Work
+
+- Kişi C test sonuçlarını kontrol eder.
+- Kişi A final audit ve hakem uyumunu kontrol eder.
+- Kişi B UI demo akışını kontrol eder.
+
+## Affected Files
+
+- src/lib/approvalFlow.ts
+- src/lib/queueEngine.ts
+- src/lib/analyzer.test.ts
+- src/lib/queueEngine.test.ts
+- src/lib/approvalFlow.test.ts
+- scripts/run-tests.mjs
+- scripts/build-check.mjs
+- scripts/quality-check.mjs
+- src/components/InboxDashboard.tsx
+- TEST_PLAN.md
+- SECURITY_NOTES.md
+- FINAL_AI_AUDIT.md
 - AI_USAGE_LOG.md
 - REVIEW_LOG.md
 - PROMPT_HISTORY.md
 - TASK_BOARD.md
 
-## Risks and Limitations
+## Risk / Limitation
 
-- Analyzer deterministic mock davranis uretir; gercek AI API kullanilmaz.
-- Mock data sahte demo verisidir; gercek kisisel veri icermez.
-- Cevap uretimi yalnizca taslaktir; gercek mail gonderimi yapilmaz.
-- Node 22 TypeScript type stripping kullanildigi icin ileride Next.js kurulumu gelince build scripti Next.js akisina tasinmalidir.
+- QA tests deterministic mock data ile çalışır.
+- Gerçek mail servisi, gerçek AI API veya gerçek kişisel veri kullanılmaz.
+- Browser tabanlı E2E test eklenmedi; Next.js build, logic tests ve manual QA checklist ile doğrulama yapıldı.
 
-## Entry: Problem Fit and Hackathon Documentation
+## Entry: Final Presentation and AI Audit
 
 - Date: 2026-05-06
-- Branch: docs/a-problem-fit-and-documentation
+- Branch: docs/a-final-presentation-and-audit
 - Owner: Kişi A
-- AI Role: Plan Agent / Documentation Agent
+- AI Role: Final Audit Agent / Presentation Coach
 
 ## AI Assisted Work
 
-- Problem-fikir uyumu metni hazırlandı.
-- Mimari plan oluşturuldu.
-- Roadmap oluşturuldu.
-- GitHub workflow belgelendi.
-- Güvenlik ve insan onayı kuralları dokümante edildi.
-- Demo anlatımı ve final audit taslağı hazırlandı.
+- Final jüri anlatımı hazırlandı.
+- Hakem kriteri uyum tablosu oluşturuldu.
+- Demo script final hale getirildi.
+- Final AI audit tamamlandı.
 
 ## Human Reviewed Work
 
-- Takım kaptanı kapsamı kontrol edecek.
-- Ekip üyeleri görev dağılımını onaylayacak.
-- Kişi C review sürecinde güvenlik, test edilebilirlik ve MVP kapsamını kontrol edecek.
+- Kişi A problem-fikir uyumunu kontrol edecek.
+- Kişi B demo ekran sırasını kontrol edecek.
+- Kişi C teknik doğruluk ve test sonuçlarını kontrol edecek.
 
-## Files Affected
+## Affected Files
 
 - README.md
 - PROBLEM_FIT.md
-- ARCHITECTURE.md
-- ROADMAP.md
-- TASK_BOARD.md
+- DEMO_SCRIPT.md
+- FINAL_AI_AUDIT.md
+- HAKEM_CHECKLIST.md
 - AI_USAGE_LOG.md
 - REVIEW_LOG.md
 - PROMPT_HISTORY.md
-- SECURITY_NOTES.md
-- DEMO_SCRIPT.md
-- FINAL_AI_AUDIT.md
+- TASK_BOARD.md
 - TEST_PLAN.md
+- SECURITY_NOTES.md
 
-## Risks and Limitations
+## Risk / Limitation
 
-- Bu adım yalnızca dokümantasyon üretir.
-- Gerçek ürün davranışı henüz uygulanmamıştır.
-- Gerçek AI API kullanılmamıştır.
-- Gerçek mail entegrasyonu yapılmamıştır.
+- Bu adım final dokümantasyon ve sunum hazırlığıdır.
+- Gerçek mail entegrasyonu, gerçek AI API entegrasyonu veya gerçek kişisel veri eklemez.
+- Final doğrulama için lint, build ve test komutları ayrıca çalıştırılmalıdır.
