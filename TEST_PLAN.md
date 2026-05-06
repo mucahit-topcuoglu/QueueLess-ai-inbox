@@ -1,5 +1,11 @@
 # TEST_PLAN.md
 
+## Gemini PDF Hotfix Tests
+
+- [x] Okunamayan PDF belge endpointinde 400 yerine Riskli / Manuel Kontrol sonucu donduruyor.
+- [x] Okunamayan CV PDF recruitment endpointinde Eksik Bilgi, risk ve mail taslagi donduruyor.
+- [x] Gemini provider 429/503 donerse health endpoint guvenli hata mesaji donduruyor.
+
 ## Test Strategy
 
 QueueLess AI Inbox MVP için test stratejisi üç katmanlıdır:

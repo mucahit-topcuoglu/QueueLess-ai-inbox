@@ -25,12 +25,15 @@ export async function POST(request: Request) {
     }
 
     const cvTexts: UploadedTextFile[] = [];
+    const extractionWarnings: string[] = [];
 
     for (const file of files) {
-      cvTexts.push({
-        fileName: file.name,
-        text: await extractPdfText(file)
-      });
+      const extracted = await extractPdfTextOrRisk(file);
+      cvTexts.push(extracted);
+
+      if (extracted.extractionError) {
+        extractionWarnings.push(`${file.name}: ${extracted.extractionError}`);
+      }
     }
 
     const result = await analyzeRecruitment(jobTextResult.text, cvTexts);
@@ -39,7 +42,7 @@ export async function POST(request: Request) {
       ok: true,
       mode: result.mode,
       ...result.data,
-      warning: [result.warning, jobTextResult.warning].filter(Boolean).join(" ") || undefined
+      warning: [result.warning, jobTextResult.warning, ...extractionWarnings].filter(Boolean).join(" ") || undefined
     });
   } catch (error) {
     if (error instanceof PdfValidationError) {
@@ -47,6 +50,25 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ ok: false, error: "Recruitment analizi tamamlanamadı." }, { status: 500 });
+  }
+}
+
+async function extractPdfTextOrRisk(file: File): Promise<UploadedTextFile> {
+  try {
+    return {
+      fileName: file.name,
+      text: await extractPdfText(file)
+    };
+  } catch (error) {
+    if (error instanceof PdfValidationError && error.code === "unreadable") {
+      return {
+        fileName: file.name,
+        text: "",
+        extractionError: error.message
+      };
+    }
+
+    throw error;
   }
 }
 

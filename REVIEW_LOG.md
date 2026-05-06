@@ -1,5 +1,25 @@
 # REVIEW_LOG.md
 
+## Review Entry: Gemini PDF Analysis Reliability Fix
+
+- Owner: Kisi C
+- Reviewer: Kisi A ve Kisi B
+- Branch: fix/c-gemini-pdf-analysis
+- Result: Ready for review
+
+## Reviewed Changes
+
+- PDF extraction failure handling, Gemini fallback reliability, recruitment/document UI result details and API key safety were updated.
+
+## Checklist
+
+- [x] `@google/genai` dependency is installed.
+- [x] `.env.example` does not contain a real API key.
+- [x] Unreadable PDF returns Riskli / Manuel Kontrol instead of blocking the whole analysis.
+- [x] Recruitment analysis shows missing fields, risks and draft reply.
+- [x] Document analysis shows missing fields, risks and draft reply.
+- [x] Lint, build and tests pass.
+
 ## Review Entry: Branding and Logo Integration
 
 - Branch: feature/b-brand-consistency-and-logo-integration

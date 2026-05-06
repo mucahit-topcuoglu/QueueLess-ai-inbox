@@ -1,5 +1,11 @@
 # TASK_BOARD.md
 
+## Gemini PDF Analysis Hotfix
+
+- [x] #22 Okunamayan PDF'leri manuel kontrol sonucuna donustur — Ready for review
+- [x] #23 Recruitment eksik/risk/mail taslagi UI gorunurlugu — Ready for review
+- [x] #24 Gemini health hata mesaji ve API key guvenligi — Ready for review
+
 ## Team Responsibilities
 
 ### Kişi A

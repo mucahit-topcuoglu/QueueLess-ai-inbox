@@ -91,6 +91,26 @@ export function AcademicDocumentAnalyzerPanel() {
                   <p className="mt-1">Belge türü: {document.detectedDocumentType}</p>
                   <p className="mt-1">Güven skoru: {document.confidenceScore}/100</p>
                   <p className="mt-1">{document.aiSummary}</p>
+                  {document.missingFields.length > 0 ? (
+                    <div className="mt-3 rounded-md bg-amber-50 p-3 text-amber-950">
+                      <p className="font-black">Eksik alanlar</p>
+                      <ul className="mt-1 list-disc pl-5">
+                        {document.missingFields.map((field) => <li key={field}>{field}</li>)}
+                      </ul>
+                    </div>
+                  ) : null}
+                  {document.riskFlags.length > 0 ? (
+                    <div className="mt-3 rounded-md bg-rose-50 p-3 text-rose-950">
+                      <p className="font-black">Riskler</p>
+                      <ul className="mt-1 list-disc pl-5">
+                        {document.riskFlags.map((risk) => <li key={risk}>{risk}</li>)}
+                      </ul>
+                    </div>
+                  ) : null}
+                  <div className="mt-3 rounded-md bg-slate-50 p-3">
+                    <p className="font-black">Insan onayina hazir mail taslagi</p>
+                    <pre className="mt-2 whitespace-pre-wrap font-sans text-xs leading-5 text-slate-700">{document.generatedReplyDraft}</pre>
+                  </div>
                 </div>
               ))}
             </div>

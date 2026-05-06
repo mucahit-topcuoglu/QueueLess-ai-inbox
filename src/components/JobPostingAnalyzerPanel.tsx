@@ -87,6 +87,26 @@ export function JobPostingAnalyzerPanel() {
                 <p className="mt-1">Kategori: {candidate.category}</p>
                 <p className="mt-1">Aksiyon: {candidate.recommendedAction}</p>
                 <p className="mt-1">{candidate.aiSummary}</p>
+                {candidate.missingFields.length > 0 ? (
+                  <div className="mt-3 rounded-md bg-amber-50 p-3 text-amber-950">
+                    <p className="font-black">Eksikler</p>
+                    <ul className="mt-1 list-disc pl-5">
+                      {candidate.missingFields.map((field) => <li key={field}>{field}</li>)}
+                    </ul>
+                  </div>
+                ) : null}
+                {candidate.risks.length > 0 ? (
+                  <div className="mt-3 rounded-md bg-rose-50 p-3 text-rose-950">
+                    <p className="font-black">Riskler</p>
+                    <ul className="mt-1 list-disc pl-5">
+                      {candidate.risks.map((risk) => <li key={risk}>{risk}</li>)}
+                    </ul>
+                  </div>
+                ) : null}
+                <div className="mt-3 rounded-md bg-slate-50 p-3">
+                  <p className="font-black">Insan onayina hazir mail taslagi</p>
+                  <pre className="mt-2 whitespace-pre-wrap font-sans text-xs leading-5 text-slate-700">{candidate.generatedReplyDraft || "Taslak olusturulamadi; manuel kontrol gerekir."}</pre>
+                </div>
               </div>
             ))}
           </div>
