@@ -1,5 +1,60 @@
 # AI_USAGE_LOG.md
 
+## Entry: Landing Page and Multi-Flow UI
+
+- Date: 2026-05-06
+- Branch: feature/b-landing-and-multi-flow-ui
+- Owner: Kişi B
+- AI Role: Frontend / UX Agent
+
+## AI Assisted Work
+
+- Modern landing page tasarlandı.
+- Multi-flow navigation yapısı oluşturuldu.
+- Recruitment ve Academic akışları için UI planlandı.
+- Job posting link input ve PDF upload alanları tasarlandı.
+- Modern green/black design system uygulandı.
+
+## Human Reviewed Work
+
+- Kişi B UI ve kullanılabilirliği kontrol edecek.
+- Kişi A problem-fikir uyumu ve anlatım gücünü kontrol edecek.
+- Kişi C analyzer entegrasyonu ve veri uyumunu kontrol edecek.
+
+## Files Affected
+
+- src/app/page.tsx
+- src/app/dashboard/page.tsx
+- src/app/start/page.tsx
+- src/app/recruitment/page.tsx
+- src/app/academic/page.tsx
+- src/components/HeroSection.tsx
+- src/components/FeatureSection.tsx
+- src/components/UseCaseCards.tsx
+- src/components/CtaSection.tsx
+- src/components/SiteHeader.tsx
+- src/components/SiteFooter.tsx
+- src/components/HumanApprovalNotice.tsx
+- src/components/RecruitmentFlow.tsx
+- src/components/JobPostingAnalyzerPanel.tsx
+- src/components/PdfUploadPanel.tsx
+- src/components/CandidateCategoryBoard.tsx
+- src/components/AcademicFlow.tsx
+- src/components/AcademicDocumentAnalyzerPanel.tsx
+- src/components/DocumentQueueBoard.tsx
+- scripts/quality-check.mjs
+- README.md
+- TEST_PLAN.md
+- REVIEW_LOG.md
+- PROMPT_HISTORY.md
+- TASK_BOARD.md
+
+## Risks and Limitations
+
+- PDF upload alanları demo frontend state'i ile çalışır; gerçek dosya parsing yapılmaz.
+- İş ilanı link analizi mock summary üretir; gerçek scraping veya AI API çağrısı yoktur.
+- Gerçek mail gönderimi, gerçek kişisel veri ve API key kullanılmaz.
+
 ## Entry: AGENTS.md Project Instructions
 
 - Date: 2026-05-06

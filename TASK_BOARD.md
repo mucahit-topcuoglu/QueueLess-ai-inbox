@@ -38,12 +38,16 @@
 - [x] #8 Human-approved email flow — Done
 - [x] #9 Testing and final audit — Done
 - [x] #10 Final submission — Done
+- [x] #11 Landing page redesign — Done
+- [x] #12 Start flow selection — Done
+- [x] #13 Recruitment flow UI — Done
+- [x] #14 Academic document analysis UI — Done
 
 ## Current Focus
 
-- Final teslim branch'i hazırlanıyor.
-- Kişi B demo ekran sırasını son kez kontrol edecek.
-- Kişi C teknik doğruluk, test sonuçları ve güvenlik kararlarını son kez kontrol edecek.
+- Kişi B landing ve multi-flow demo ekranlarını review için hazırladı.
+- Kişi A problem-fikir anlatım gücü ve landing mesajını kontrol edecek.
+- Kişi C ileride analyzer entegrasyonu için recruitment/academic UI veri uyumunu kontrol edecek.
 
 ## Submission Readiness
 

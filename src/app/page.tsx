@@ -1,6 +1,19 @@
-import { InboxDashboard } from "@/components/InboxDashboard";
-import { analyzedMockApplications } from "@/data/mockApplications";
+import { CtaSection } from "@/components/CtaSection";
+import { FeatureSection } from "@/components/FeatureSection";
+import { HeroSection } from "@/components/HeroSection";
+import { HumanApprovalNotice } from "@/components/HumanApprovalNotice";
+import { SiteFooter } from "@/components/SiteFooter";
+import { UseCaseCards } from "@/components/UseCaseCards";
 
 export default function HomePage() {
-  return <InboxDashboard initialApplications={analyzedMockApplications} />;
+  return (
+    <main className="min-h-screen bg-neutral-950 text-white">
+      <HeroSection />
+      <FeatureSection />
+      <UseCaseCards />
+      <HumanApprovalNotice variant="dark" />
+      <CtaSection />
+      <SiteFooter />
+    </main>
+  );
 }
