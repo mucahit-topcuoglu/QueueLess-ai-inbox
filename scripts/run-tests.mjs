@@ -6,7 +6,8 @@ const root = fileURLToPath(new URL("..", import.meta.url));
 const testFiles = [
   "src/lib/analyzer.test.ts",
   "src/lib/queueEngine.test.ts",
-  "src/lib/approvalFlow.test.ts"
+  "src/lib/approvalFlow.test.ts",
+  "src/lib/ai/aiIntegration.test.ts"
 ];
 
 for (const testFile of testFiles) {

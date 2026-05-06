@@ -1,5 +1,35 @@
 # AI_USAGE_LOG.md
 
+## Entry: Ollama Gemma AI Analysis Workflow
+
+- Date: 2026-05-06
+- Branch: feature/c-ollama-gemma-ai-integration
+- Owner: Kisi C
+- AI Role: Expert Developer Agent / AI Integration Agent / Security Review Agent
+
+## AI Assisted Work
+
+- Ollama istemci katmani tasarlandi.
+- gemma4:31b-cloud model entegrasyonu planlandi.
+- Recruitment/CV analiz promptu olusturuldu.
+- Staj/belge analiz promptu olusturuldu.
+- PDF text extraction ve guvenli dosya isleme akisi planlandi.
+- Safe JSON parse ve fallback analyzer mantigi eklendi.
+- Test senaryolari ve guvenlik kontrolleri cikarildi.
+
+## Human Reviewed Work
+
+- Kisi C AI entegrasyonunu ve testleri kontrol edecek.
+- Kisi B frontend response formatini kontrol edecek.
+- Kisi A guvenlik ve problem-fikir uyumunu kontrol edecek.
+
+## Risk / Limitation
+
+- Model ciktilari dogrulanmali.
+- PDF parse her belgede kusursuz olmayabilir.
+- Is ilani linkleri bazi sitelerde fetch edilemeyebilir.
+- Uretim ortami icin ek guvenlik kontrolleri gerekir.
+
 ## Entry: Branding and Logo Integration
 
 - Date: 2026-05-06

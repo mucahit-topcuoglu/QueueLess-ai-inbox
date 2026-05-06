@@ -1,5 +1,19 @@
 # TEST_PLAN.md
 
+## Ollama Gemma AI Integration Tests
+
+- [x] Ollama health endpoint eklendi.
+- [x] Model adi env'den okunuyor ve default `gemma4:31b-cloud`.
+- [x] PDF olmayan dosya reddediliyor.
+- [x] Buyuk dosya reddediliyor.
+- [x] PDF metni modele gitmeden truncate ediliyor.
+- [x] Recruitment endpoint is ilani + CV analiz sonucu formatini donuyor.
+- [x] Document endpoint checklist sonucu formatini donuyor.
+- [x] AI JSON parse hatasinda sistem crash etmiyor.
+- [x] AI baglanti hatasinda fallback calisiyor.
+- [x] Gercek mail gonderimi yapilmiyor.
+- [x] Riskli belge manuel kontrole gidiyor.
+
 ## Test Strategy
 
 QueueLess AI Inbox MVP için test stratejisi üç katmanlıdır:
