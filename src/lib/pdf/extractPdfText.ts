@@ -34,6 +34,12 @@ export async function extractPdfText(file: File): Promise<string> {
       await parser.destroy();
     }
   } catch (error) {
+    const fallbackText = await extractRawPdfText(file);
+
+    if (fallbackText) {
+      return truncateForModel(fallbackText);
+    }
+
     if (error instanceof PdfValidationError) {
       throw error;
     }
@@ -56,4 +62,30 @@ export function validatePdfFile(file: File): void {
 
 export function truncateForModel(text: string, maxLength = MAX_MODEL_TEXT_CHARS): string {
   return text.length > maxLength ? text.slice(0, maxLength) : text;
+}
+
+async function extractRawPdfText(file: File): Promise<string> {
+  try {
+    const bytes = Buffer.from(await file.arrayBuffer());
+    const source = bytes.toString("latin1");
+    const matches = [...source.matchAll(/\(([^()\r\n]{2,})\)\s*Tj/g), ...source.matchAll(/\(([^()\r\n]{2,})\)\s*'/g)];
+    const text = matches
+      .map((match) => decodePdfLiteral(match[1] ?? ""))
+      .join(" ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    return text.length >= 10 ? text : "";
+  } catch {
+    return "";
+  }
+}
+
+function decodePdfLiteral(value: string): string {
+  return value
+    .replace(/\\n/g, "\n")
+    .replace(/\\r/g, "\r")
+    .replace(/\\t/g, "\t")
+    .replace(/\\([()\\])/g, "$1")
+    .trim();
 }

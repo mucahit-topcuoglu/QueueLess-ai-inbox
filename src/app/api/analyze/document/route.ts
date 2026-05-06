@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { analyzeDocument } from "@/lib/ai/analyzeDocument";
+import type { GeminiInlineFile } from "@/lib/ai/geminiClient";
 import { extractPdfText, PdfValidationError } from "@/lib/pdf/extractPdfText";
 import type { UploadedTextFile } from "@/lib/ai/schemas";
 
@@ -16,24 +17,26 @@ export async function POST(request: Request) {
     }
 
     const documentTexts: UploadedTextFile[] = [];
+    const pdfFiles: GeminiInlineFile[] = [];
     const extractionWarnings: string[] = [];
 
     for (const file of files) {
       const extracted = await extractPdfTextOrRisk(file);
       documentTexts.push(extracted);
+      pdfFiles.push(await toGeminiInlinePdf(file));
 
       if (extracted.extractionError) {
         extractionWarnings.push(`${file.name}: ${extracted.extractionError}`);
       }
     }
 
-    const result = await analyzeDocument(documentType, documentTexts);
+    const result = await analyzeDocument(documentType, documentTexts, pdfFiles);
 
     return NextResponse.json({
       ok: true,
       mode: result.mode,
       ...result.data,
-      warning: [result.warning, ...extractionWarnings].filter(Boolean).join(" ") || undefined
+      warning: buildAnalysisWarning(result.mode, result.warning, extractionWarnings)
     });
   } catch (error) {
     if (error instanceof PdfValidationError) {
@@ -61,6 +64,24 @@ async function extractPdfTextOrRisk(file: File): Promise<UploadedTextFile> {
 
     throw error;
   }
+}
+
+async function toGeminiInlinePdf(file: File): Promise<GeminiInlineFile> {
+  const buffer = Buffer.from(await file.arrayBuffer());
+
+  return {
+    fileName: file.name,
+    mimeType: file.type || "application/pdf",
+    data: buffer.toString("base64")
+  };
+}
+
+function buildAnalysisWarning(mode: string, providerWarning: string | undefined, extractionWarnings: string[]): string | undefined {
+  if (mode === "gemini" && extractionWarnings.length > 0) {
+    return [providerWarning, "Yerel PDF metin çıkarımı yapılamadı; Gemini ekli PDF dosyasını doğrudan analiz etti."].filter(Boolean).join(" ");
+  }
+
+  return [providerWarning, ...extractionWarnings].filter(Boolean).join(" ") || undefined;
 }
 
 function getTextField(formData: FormData, name: string): string {
