@@ -155,3 +155,30 @@ Bu proje AI destekli geliştirilecektir; ancak AI'ın yaptığı her katkı gör
 Manuel süreç yaklaşık 6 dakika sürerken, QueueLess AI Inbox ile hedef süreç yaklaşık 2 dakikadır. Tahmini zaman kazancı %66'dır.
 
 Hakem için en net mesaj: Bu proje genel bir AI denemesi değil, manuel başvuru maili ve evrak kontrol sürecindeki her adımı karşılayan güvenli, ölçülebilir ve demo edilebilir bir MVP'dir.
+
+## Gemini API Integration
+
+- AI provider: Gemini API
+- Default model: `gemini-2.5-flash`
+- Server-side environment values:
+
+```bash
+GEMINI_API_KEY=your_gemini_api_key_here
+GEMINI_MODEL=gemini-2.5-flash
+AI_ANALYSIS_MODE=gemini
+```
+
+- API key only lives in `.env.local`.
+- `.env.local` is ignored by Git and must not be committed.
+- The frontend does not use `NEXT_PUBLIC_GEMINI_API_KEY`.
+- Gemini is called only from server-side API routes.
+- Gemini health check endpoint: `/api/health/gemini`.
+- If Gemini is unavailable, deterministic fallback analyzer can keep the MVP flow working with `mode: "fallback"`.
+
+## Recruitment / CV Analysis
+
+The `/recruitment` flow accepts a job URL or manual job description and one or more PDF CV files. The server extracts PDF text, sends the job and CV text to Gemini, and returns candidate categories, match scores, missing fields, risks, recommended actions, and summaries.
+
+## Internship / Document Analysis
+
+The `/academic` and `/internship` document analysis flow accepts PDF documents and a selected document type. Gemini estimates document type, checks checklist fields, detects missing fields and risk flags, recommends the correct queue, and generates a human-reviewed reply draft. No real email is sent.

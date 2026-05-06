@@ -40,3 +40,15 @@ Riskli başvurularda gönderim simülasyonu engellenir. Taslak varsa bile otomat
 - Real AI API entegrasyonunda prompt injection, data minimization ve output review kontrolleri uygulanmalı.
 - Outbound mail gönderimi için explicit human approval, confirmation modal ve immutable audit trail zorunlu olmalı.
 - Riskli belgeler için ikinci insan review veya kurum policy kontrolü eklenmeli.
+
+## Gemini API Security Notes
+
+- `GEMINI_API_KEY` sadece `.env.local` içinde tutulur.
+- `.env.local`, `.env` ve `.env.*.local` GitHub'a gönderilmez.
+- API key koda, promptlara, loglara veya response payload'larına yazılmaz.
+- Frontend tarafında `NEXT_PUBLIC_GEMINI_API_KEY` kullanılmaz.
+- Gemini çağrıları yalnızca server-side API route içinde yapılır.
+- PDF içerikleri analiz için kullanılır, `console.log` ile yazdırılmaz.
+- Gerçek mail gönderimi yoktur.
+- İnsan onayı zorunludur.
+- Riskli veya düşük güvenli belgeler manuel kontrole yönlendirilir.

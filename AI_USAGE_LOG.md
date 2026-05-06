@@ -439,3 +439,30 @@
 - Bu adım final teslim hazırlığıdır; büyük özellik geliştirme içermez.
 - Gerçek mail entegrasyonu, gerçek AI API veya gerçek kişisel veri eklenmez.
 - Demo provası insan kontrolüyle tamamlanmalıdır.
+
+## Entry: Switch AI Provider from Gemma to Gemini
+
+- Date: 2026-05-06
+- Branch: feature/c-switch-from-gemma-to-gemini
+- Owner: Kişi C
+- AI Role: Expert Developer Agent / AI Integration Agent / Security Review Agent
+
+## AI Assisted Work
+
+- Gemini server-side client tasarlandı.
+- Recruitment/CV analiz endpointi Gemini API formatına taşındı.
+- Staj/belge analiz endpointi Gemini API formatına taşındı.
+- Safe JSON parse, PDF validation ve fallback analyzer akışı eklendi.
+- API key güvenlik kuralları ve test senaryoları dokümante edildi.
+
+## Human Reviewed Work
+
+- Kişi C AI entegrasyonunu ve testleri kontrol edecek.
+- Kişi B frontend response formatını kontrol edecek.
+- Kişi A güvenlik ve problem-fikir uyumunu kontrol edecek.
+
+## Risk / Limitation
+
+- Gemini çıktıları insan tarafından kontrol edilmelidir.
+- PDF text extraction her PDF'de kusursuz olmayabilir.
+- API key eksik veya hatalıysa health endpoint hata döner ve analiz fallback'e düşer.
