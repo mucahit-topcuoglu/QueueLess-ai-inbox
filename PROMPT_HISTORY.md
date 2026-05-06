@@ -1,5 +1,28 @@
 # PROMPT_HISTORY.md
 
+## Prompt Summary: Landing Page and Multi-Flow UI
+
+- Date: 2026-05-06
+- Requested by: Kişi B
+- Branch: feature/b-landing-and-multi-flow-ui
+
+## Summary
+
+Kişi B, QueueLess AI Inbox frontend'inin daha modern, etkileyici ve jüriye güçlü görünecek şekilde geliştirilmesini istedi. İstenen çalışma modern green/black landing page, `Başla` seçim akışı, işe alım/CV analizi sayfası ve akademik/staj belge analizi sayfasını kapsadı.
+
+PDF upload alanlarının ve iş ilanı link input'unun frontend demo yapısı olarak hazırlanması, gerçek backend veya gerçek AI API gerektirmemesi, mevcut dashboard ve human approval flow yapılarının bozulmaması vurgulandı.
+
+## Key Instructions Captured
+
+- Branch adı `feature/b-landing-and-multi-flow-ui` olmalı.
+- `/` modern landing page olmalı.
+- `/start` iki kullanım senaryosu seçimi sunmalı.
+- `/recruitment` iş ilanı link input'u, PDF upload alanı, CV kategorileri ve aday detay UI'ı içermeli.
+- `/academic` belge türü seçimi, PDF upload alanı, belge kuyrukları ve human approval mesajı içermeli.
+- Tasarım yeşil/siyah, premium, modern ve demo odaklı olmalı.
+- Gerçek mail gönderimi, gerçek AI API, gerçek kişisel veri ve secret kullanılmamalı.
+- README.md, TEST_PLAN.md, AI_USAGE_LOG.md, REVIEW_LOG.md, PROMPT_HISTORY.md ve TASK_BOARD.md güncellenmeli.
+
 ## Prompt Summary: Ortak Eğitim Promptu
 
 - Date: 2026-05-06

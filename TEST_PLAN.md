@@ -47,6 +47,21 @@ Testlerde gerçek mail servisi, gerçek AI API, gerçek kişisel veri veya API k
 - [x] Başvuru seçilince detay paneli, checklist ve AI analiz alanı güncelleniyor.
 - [x] Riskli başvuruda manuel kontrol uyarısı gösteriliyor.
 
+## Landing and Multi-Flow UI Tests
+
+- [ ] Anasayfa açılıyor mu?
+- [ ] Başla butonu çalışıyor mu?
+- [ ] Kullanım senaryosu seçimi çalışıyor mu?
+- [ ] Recruitment ekranı açılıyor mu?
+- [ ] Job posting link input'u çalışıyor mu?
+- [ ] PDF upload alanı görünüyor mu?
+- [ ] CV kategorileri gösteriliyor mu?
+- [ ] Academic ekranı açılıyor mu?
+- [ ] Belge türü seçimi çalışıyor mu?
+- [ ] Belge analizi kartları görünüyor mu?
+- [ ] Human approval mesajı görünür mü?
+- [ ] Responsive görünüm kabul edilebilir mi?
+
 ## Human Approval Tests
 
 - [x] Mail taslağı düzenlenebilir.

@@ -1,5 +1,29 @@
 # REVIEW_LOG.md
 
+## Review Entry: Landing Page and Multi-Flow UI
+
+- Branch: feature/b-landing-and-multi-flow-ui
+- Owner: Kişi B
+- Reviewer: Kişi A
+- Optional Reviewer: Kişi C
+- Result: Ready for review
+
+## Review Scope
+
+- Landing page problem-fikir uyumunu güçlü ve hızlı anlatıyor mu?
+- Green/black modern tasarım demo için yeterince premium ve okunabilir mi?
+- `Başla` akışı recruitment ve academic sayfalarına doğru yönlendiriyor mu?
+- Recruitment ekranında job posting input, PDF upload alanı, aday kategorileri ve detay paneli anlaşılır mı?
+- Academic ekranında belge türü seçimi, PDF upload alanı, kuyruklar ve human approval mesajı görünür mü?
+- Mevcut dashboard `/dashboard` altında bozulmadan korunuyor mu?
+- Gerçek mail, gerçek AI API, gerçek kişisel veri veya secret eklenmedi mi?
+
+## Review Notes
+
+- Bu PR frontend demo akışını genişletir.
+- PDF upload ve job posting link akışları backend entegrasyonu yapmadan mock/frontend state davranışı sunar.
+- Kişi C'nin ileride analyzer entegrasyonu için veri uyumunu kontrol etmesi önerilir.
+
 ## Review Entry: AGENTS.md Review
 
 - Owner: Kişi A
