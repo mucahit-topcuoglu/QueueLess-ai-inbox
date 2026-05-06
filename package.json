@@ -1,0 +1,11 @@
+{
+  "name": "queueless-ai-inbox",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "node scripts/quality-check.mjs",
+    "build": "node --experimental-strip-types scripts/build-check.mjs",
+    "test": "node --experimental-strip-types src/lib/analyzer.test.ts"
+  }
+}

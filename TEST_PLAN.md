@@ -49,3 +49,34 @@ npm run lint
 npm run build
 npm run test
 ```
+
+## Test Scenarios: Mock AI Analyzer and Queue Engine
+
+- [x] Eksik staj evraki Eksik Evrak kuyruguna dusmeli.
+- [x] Eksiksiz staj evraki Incelemeye Alindi kuyruguna dusmeli.
+- [x] Dusuk guven skorlu belge Riskli / Manuel Kontrol kuyruguna dusmeli.
+- [x] Imza dogrulanamayan belge Riskli / Manuel Kontrol kuyruguna dusmeli.
+- [x] Eksik evrak icin mail taslagi eksikleri listelemeli.
+- [x] Eksiksiz evrak icin mail taslagi incelemeye alindi metni uretmeli.
+- [x] Analyzer hicbir sekilde gercek mail gondermemeli.
+
+## Edge Case Coverage
+
+- [x] Eksik attachment risk flag uretir.
+- [x] Cok dusuk confidence score manuel kontrole gider.
+- [x] Bilinmeyen belge turu manuel kontrole gider.
+- [x] Imza dogrulanamiyor ifadesi manuel kontrol risk flag uretir.
+- [x] Checklist tamamen bossa manuel kontrol risk flag uretir.
+- [x] Sender email formati hataliysa risk flag uretir.
+- [x] Ayni basvuru tekrar gelmis olabilir durumu risk flag olarak temsil edilir.
+
+## Verification Result
+
+- Date: 2026-05-06
+- Branch: feature/c-ai-analyzer-and-mock-data
+- Owner: Kisi C
+- Commands:
+  - npm run lint
+  - npm run build
+  - npm run test
+- Result: Passed
