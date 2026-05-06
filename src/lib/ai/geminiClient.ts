@@ -12,7 +12,7 @@ export type GeminiJsonRequest = {
 };
 
 export class GeminiRequestError extends Error {
-  constructor(message = "Gemini API çağrısı tamamlanamadı.") {
+  constructor(message = "Gemini API cagrisi tamamlanamadi. Analiz fallback moduyla devam eder.") {
     super(message);
     this.name = "GeminiRequestError";
   }
@@ -35,7 +35,7 @@ export async function callGeminiJson<T>({
   const model = process.env.GEMINI_MODEL?.trim() || DEFAULT_MODEL;
 
   if (!apiKey) {
-    throw new GeminiRequestError("GEMINI_API_KEY tanımlı değil.");
+    throw new GeminiRequestError("GEMINI_API_KEY tanimli degil. Analiz fallback moduyla devam eder.");
   }
 
   const ai = new GoogleGenAI({ apiKey });
@@ -53,7 +53,7 @@ export async function callGeminiJson<T>({
     const responseText = response.text ?? "";
 
     if (!responseText.trim()) {
-      throw new GeminiRequestError("Gemini boş yanıt döndürdü.");
+      throw new GeminiRequestError("Gemini bos yanit dondurdu. Analiz fallback moduyla devam eder.");
     }
 
     return parseJsonSafely<T>(responseText);
@@ -62,7 +62,7 @@ export async function callGeminiJson<T>({
       throw error;
     }
 
-    throw new GeminiRequestError("Gemini API çağrısı tamamlanamadı.");
+    throw new GeminiRequestError(createGeminiErrorMessage(error));
   }
 }
 
@@ -70,27 +70,27 @@ export async function checkGeminiHealth(): Promise<{ ok: true } | { ok: false; e
   const { hasApiKey } = getGeminiConfig();
 
   if (!hasApiKey) {
-    return { ok: false, error: "GEMINI_API_KEY tanımlı değil" };
+    return { ok: false, error: "GEMINI_API_KEY tanimli degil" };
   }
 
   try {
     await callGeminiJson<{ ok: boolean }>({
-      systemPrompt: "Sadece JSON döndür.",
-      userPrompt: "Şu JSON'u döndür: {\"ok\":true}",
+      systemPrompt: "Sadece JSON dondur.",
+      userPrompt: "Su JSON'u dondur: {\"ok\":true}",
       temperature: 0,
       timeoutMs: 20000
     });
 
     return { ok: true };
   } catch (error) {
-    return { ok: false, error: error instanceof Error ? error.message : "Gemini health check tamamlanamadı." };
+    return { ok: false, error: error instanceof Error ? error.message : "Gemini health check tamamlanamadi." };
   }
 }
 
 async function withTimeout<T>(promise: Promise<T>, timeoutMs: number): Promise<T> {
   let timeout: ReturnType<typeof setTimeout> | undefined;
   const timeoutPromise = new Promise<never>((_, reject) => {
-    timeout = setTimeout(() => reject(new GeminiRequestError("Gemini yanıt süresi aşıldı.")), timeoutMs);
+    timeout = setTimeout(() => reject(new GeminiRequestError("Gemini yanit suresi asildi. Analiz fallback moduyla devam eder.")), timeoutMs);
   });
 
   try {
@@ -100,4 +100,22 @@ async function withTimeout<T>(promise: Promise<T>, timeoutMs: number): Promise<T
       clearTimeout(timeout);
     }
   }
+}
+
+function createGeminiErrorMessage(error: unknown): string {
+  const status = typeof error === "object" && error && "status" in error ? Number((error as { status?: unknown }).status) : undefined;
+
+  if (status === 429) {
+    return "Gemini kota limiti doldu. Analiz fallback moduyla devam eder.";
+  }
+
+  if (status === 503) {
+    return "Gemini modeli gecici olarak yogun veya kullanilamiyor. Analiz fallback moduyla devam eder.";
+  }
+
+  if (status === 401 || status === 403) {
+    return "Gemini API key yetkisi reddedildi. .env.local icindeki GEMINI_API_KEY degerini kontrol edin.";
+  }
+
+  return "Gemini API cagrisi tamamlanamadi. Analiz fallback moduyla devam eder.";
 }

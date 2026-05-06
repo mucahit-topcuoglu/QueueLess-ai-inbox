@@ -9,6 +9,7 @@ export type AnalysisEnvelope<TData> = {
 export type UploadedTextFile = {
   fileName: string;
   text: string;
+  extractionError?: string;
 };
 
 export type CandidateCategory = "Uygun" | "Değerlendirilebilir" | "Eksik Bilgi" | "Uygun Değil";
@@ -23,6 +24,7 @@ export type RecruitmentCandidateResult = {
   risks: string[];
   recommendedAction: string;
   aiSummary: string;
+  generatedReplyDraft?: string;
 };
 
 export type RecruitmentAnalysisResult = {

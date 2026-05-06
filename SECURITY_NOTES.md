@@ -1,5 +1,12 @@
 # SECURITY_NOTES.md
 
+## Local Gemini Key Reminder
+
+- `.env.example` sadece placeholder deger icerir.
+- Gercek Gemini API key yalnizca `.env.local` icinde tutulmalidir.
+- `.env.local` Git tarafindan ignore edilir ve commitlenmez.
+- Gemini kota veya model yogunlugu hatasi donerse uygulama fallback analizle devam eder.
+
 ## Security Notes
 
 QueueLess AI Inbox MVP güvenli, kontrollü ve demo odaklı bir kapsamda geliştirilir.

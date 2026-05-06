@@ -43,7 +43,9 @@ export async function extractPdfText(file: File): Promise<string> {
 }
 
 export function validatePdfFile(file: File): void {
-  if (file.type !== "application/pdf") {
+  const hasPdfExtension = file.name.toLocaleLowerCase("tr-TR").endsWith(".pdf");
+
+  if (file.type && file.type !== "application/pdf" && !hasPdfExtension) {
     throw new PdfValidationError("Sadece PDF dosyaları kabul edilir.", "invalid_type");
   }
 

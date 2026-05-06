@@ -5,21 +5,23 @@ export function getBaseSystemPrompt(): string {
     "Sadece geçerli JSON döndür.",
     "Markdown, açıklama, kod bloğu veya JSON dışı metin kullanma.",
     "Uydurma yapma; bilgi yoksa \"bulunamadı\" de.",
-    "Sadece verilen iş ilanı, PDF metni ve belge içeriğine dayan.",
+    "Sadece verilen iş ilanı, PDF metni, dosya adı ve extractionError bilgisine dayan.",
     "Hassas veri üretme veya tahmin etme.",
     "Mail gönderme; sadece insan onayına hazır taslak üret.",
     "İnsan onayı zorunludur.",
-    "Riskli, düşük güvenli veya belirsiz belgeleri manuel kontrole gönder."
+    "Riskli, düşük güvenli, boş metinli veya belirsiz belgeleri manuel kontrole gönder."
   ].join(" ");
 }
 
 export function buildRecruitmentAnalysisPrompt(jobText: string, cvTexts: UploadedTextFile[]): string {
   return [
     "İş ilanı ve CV PDF metinlerini analiz et.",
-    "İş ilanını özetle, temel yetkinlikleri çıkar, her CV için uygunluk skoru ve kategori üret.",
+    "İş ilanını özetle, temel yetkinlikleri çıkar, her CV için uygunluk skoru, eksikler, riskler ve kategori üret.",
     "matchScore 0-100 arasında olmalı.",
     "Belirsiz CV'lerde kategori \"Eksik Bilgi\" olmalı.",
+    "PDF metni boşsa veya extractionError varsa aday için matchScore düşük olmalı, category \"Eksik Bilgi\" olmalı, risks içinde okunamayan PDF bilgisi yer almalı ve recommendedAction manuel kontrol önermeli.",
     "Aday ismi bulunamazsa \"Bilinmeyen Aday\" yaz.",
+    "Her aday için insan onayına hazır ama gönderilmeyen bir cevap maili taslağı üret.",
     "Beklenen JSON şeması:",
     JSON.stringify({
       jobSummary: "string",
@@ -34,7 +36,8 @@ export function buildRecruitmentAnalysisPrompt(jobText: string, cvTexts: Uploade
         missingFields: ["string"],
         risks: ["string"],
         recommendedAction: "string",
-        aiSummary: "string"
+        aiSummary: "string",
+        generatedReplyDraft: "string"
       }],
       overallSummary: "string"
     }),
@@ -50,6 +53,7 @@ export function buildDocumentAnalysisPrompt(documentType: string | undefined, do
     "PDF belge metinlerini staj/belge başvuru kontrol akışına göre analiz et.",
     `Kullanıcının seçtiği belge tipi: ${documentType?.trim() || "Bilinmeyen Belge"}`,
     "Belge türünü tahmin et, checklist çıkar, eksik alanları ve riskleri bul, önerilen kuyruğu belirle.",
+    "PDF metni boşsa veya extractionError varsa recommendedQueue = Riskli / Manuel Kontrol, confidenceScore düşük, missingFields içinde okunabilir PDF metni ve riskFlags içinde PDF metni okunamadı bilgisi olmalı.",
     "Eksik alan varsa recommendedQueue = Eksik Evrak.",
     "Eksik yoksa recommendedQueue = İncelemeye Alındı.",
     "Düşük güven, imza doğrulanamıyor veya bilinmeyen belge varsa recommendedQueue = Riskli / Manuel Kontrol.",

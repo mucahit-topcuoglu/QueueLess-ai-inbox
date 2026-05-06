@@ -1,5 +1,32 @@
 # AI_USAGE_LOG.md
 
+## Entry: Gemini PDF Analysis Reliability Fix
+
+- Date: 2026-05-06
+- Branch: fix/c-gemini-pdf-analysis
+- Owner: Kisi C
+- AI Role: Expert Developer Agent / QA Support
+
+## AI Assisted Work
+
+- `@google/genai` dependency installation was verified.
+- Unreadable PDFs now produce Riskli / Manuel Kontrol instead of blocking the whole analysis.
+- Recruitment analysis now shows missing fields, risks and a human-approved email draft.
+- Document analysis now shows missing fields, risks and a human-approved email draft.
+- Gemini quota/high-demand errors now return safer health messages while analysis can continue through fallback.
+
+## Human Reviewed Work
+
+- Kisi C teknik dogruluk ve testleri kontrol edecek.
+- Kisi A guvenlik ve API key kullanimini kontrol edecek.
+- Kisi B UI'da eksik/risk/taslak alanlarini kontrol edecek.
+
+## Risk / Limitation
+
+- Gemini API key valid olsa bile provider 429/503 donebilir.
+- Bu durumda urun fallback analiz sonucu gosterir.
+- Taranmis gorsel PDF'ler OCR olmadan metin cikarmaz; sistem bu belgeleri manuel kontrole alir.
+
 ## Entry: Branding and Logo Integration
 
 - Date: 2026-05-06
